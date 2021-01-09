@@ -114,51 +114,67 @@ namespace Assignment5
             commoditiesIndex = commoditiesListBox.SelectedIndex;
             sizeIndex = sizeListBox.SelectedIndex;
 
-            if (int.TryParse(quantityNumericUpDown.Text, out quantity) && quantity != 0)
+
+            if(commoditiesIndex == -1  )
             {
-                try
+                MessageBox.Show("please select a commodity");
+
+            }
+            else if (sizeIndex == -1)
+            {
+                MessageBox.Show("please select a size");
+
+            }
+            else 
+            {
+                if (int.TryParse(quantityNumericUpDown.Text, out quantity) && quantity != 0)
                 {
-                    if (count)
+                    try
                     {
-                        // Clone the value only the first time 
-                        tempStock = stock.Clone() as int[,];
+                        if (count)
+                        {
+                            // Clone the value only the first time 
+                            tempStock = stock.Clone() as int[,];
+                        }
+
+                        if (quantity <= tempStock[sizeIndex, commoditiesIndex])
+                        {
+
+                            collectivePrice = (price[sizeIndex, commoditiesIndex] * quantity);
+
+                            dataGridView1.Rows.Add(commodities[commoditiesIndex], size[sizeIndex], quantityNumericUpDown.Text, price[sizeIndex, commoditiesIndex], collectivePrice);
+
+                            //stock[sizeIndex, commoditiesIndex] -= quantity;
+                            tempStock[sizeIndex, commoditiesIndex] -= quantity;
+
+                            count = false; // clone is stopped by the flag
+
+                            // commoditiesListBox.SelectedIndex = -1;
+                            // sizeListBox.SelectedIndex = -1;
+                            quantityNumericUpDown.Text = "0";
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("There is only " + tempStock[sizeIndex, commoditiesIndex] + " available");
+                            quantityNumericUpDown.Focus();
+
+                            quantityNumericUpDown.Text = tempStock[sizeIndex, commoditiesIndex].ToString();
+
+                        }
+
                     }
-
-                    if (quantity <= tempStock[sizeIndex, commoditiesIndex])
-                    {
-
-                        collectivePrice = (price[sizeIndex, commoditiesIndex] * quantity);
-
-                        dataGridView1.Rows.Add(commodities[commoditiesIndex], size[sizeIndex], quantityNumericUpDown.Text, price[sizeIndex, commoditiesIndex], collectivePrice);
-
-                        //stock[sizeIndex, commoditiesIndex] -= quantity;
-                        tempStock[sizeIndex, commoditiesIndex] -= quantity;
-
-                        count = false; // clone is stopped by the flag
-
-                       // commoditiesListBox.SelectedIndex = -1;
-                       // sizeListBox.SelectedIndex = -1;
-                        quantityNumericUpDown.Text = "0";
-
-                    }
-                    else
-                    {
-                        MessageBox.Show("There is only " + tempStock[sizeIndex, commoditiesIndex] + " available");
-                        quantityNumericUpDown.Focus();
-
-                        quantityNumericUpDown.Text = tempStock[sizeIndex, commoditiesIndex].ToString();
-
-                    }
+                    catch { }
 
                 }
-                catch { }
-
+                else
+                {
+                    MessageBox.Show("Please enter the valid input");
+                }
+                proceedButton.Enabled = true;
             }
-            else
-            {
-                MessageBox.Show("Please enter the valid input");
-            }
-            proceedButton.Enabled = true;
+             
+           
 
         }
 
@@ -190,14 +206,15 @@ namespace Assignment5
         {
             try
             {
-                Console.WriteLine("row count "+dataGridView1.Rows.Count);
-                int rowindex = dataGridView1.CurrentCell.RowIndex;
+               // Console.WriteLine("row count "+dataGridView1.Rows.Count);
+                
 
                 // delete the row and add the quantity back to the Tempstock
              
                  if (dataGridView1.Rows.Count > 1 /*&& dataGridView1.CurrentRow.Index == dataGridView1.Rows.Count*/) 
                 {
-                    Console.WriteLine("row index "+rowindex);
+                    int rowindex = dataGridView1.CurrentCell.RowIndex;
+                 //   Console.WriteLine("row index "+rowindex);
 
                     tempStock[sizeIndex, commoditiesIndex] += Convert.ToInt32(dataGridView1.Rows[rowindex].Cells[2].Value.ToString());
                     dataGridView1.Rows.RemoveAt(rowindex);
@@ -325,11 +342,11 @@ namespace Assignment5
 
                         FS.Close();
                         // summary Transaction 
-                        var myUniqueFileName = string.Format(@"{0}.txt", DateTime.Now.Ticks);
+                        var myUniqueFileName = string.Format("Transactions.txt");
                         StreamWriter TR;
                         TR = File.CreateText(myUniqueFileName);
                         TR.WriteLine("*******************Transaction for the day******************");
-                        TR.WriteLine("*******************MR BAGEL*********************************");
+                        TR.WriteLine("************************************************************");
                         TR.WriteLine(totalReceipt + "\n");
                         TR.Flush();
                         TR.Close();
@@ -460,7 +477,11 @@ namespace Assignment5
 
         }
 
-        
+        private void label9_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
         private void label3_Click(object sender, EventArgs e)
         {
 

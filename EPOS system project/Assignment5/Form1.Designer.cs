@@ -79,6 +79,7 @@ namespace Assignment5
             this.RightToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.LeftToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.ContentPanel = new System.Windows.Forms.ToolStripContentPanel();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.summaryTabPage.SuspendLayout();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
@@ -126,6 +127,7 @@ namespace Assignment5
             // summaryTabPage
             // 
             this.summaryTabPage.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("summaryTabPage.BackgroundImage")));
+            this.summaryTabPage.Controls.Add(this.label9);
             this.summaryTabPage.Controls.Add(this.summary_Button);
             this.summaryTabPage.Controls.Add(this.toolStripContainer1);
             this.summaryTabPage.Location = new System.Drawing.Point(4, 22);
@@ -171,13 +173,13 @@ namespace Assignment5
             // 
             // toolStripContainer1.TopToolStripPanel
             // 
-            this.toolStripContainer1.TopToolStripPanel.Padding = new System.Windows.Forms.Padding(0, 0, 25, 25);
+            this.toolStripContainer1.TopToolStripPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.toolStripContainer1.TopToolStripPanel.Click += new System.EventHandler(this.toolStripContainer1_TopToolStripPanel_Click);
             // 
             // averageLable
             // 
             this.averageLable.BackColor = System.Drawing.Color.DarkGray;
-            this.averageLable.Location = new System.Drawing.Point(267, 136);
+            this.averageLable.Location = new System.Drawing.Point(289, 145);
             this.averageLable.Name = "averageLable";
             this.averageLable.Size = new System.Drawing.Size(122, 24);
             this.averageLable.TabIndex = 7;
@@ -186,15 +188,15 @@ namespace Assignment5
             // 
             this.totalNoTransLable.BackColor = System.Drawing.Color.DarkGray;
             this.totalNoTransLable.ForeColor = System.Drawing.Color.Black;
-            this.totalNoTransLable.Location = new System.Drawing.Point(267, 99);
+            this.totalNoTransLable.Location = new System.Drawing.Point(289, 106);
             this.totalNoTransLable.Name = "totalNoTransLable";
-            this.totalNoTransLable.Size = new System.Drawing.Size(122, 26);
+            this.totalNoTransLable.Size = new System.Drawing.Size(122, 27);
             this.totalNoTransLable.TabIndex = 6;
             // 
             // totalSaleValueLabel
             // 
             this.totalSaleValueLabel.BackColor = System.Drawing.Color.DarkGray;
-            this.totalSaleValueLabel.Location = new System.Drawing.Point(267, 57);
+            this.totalSaleValueLabel.Location = new System.Drawing.Point(289, 63);
             this.totalSaleValueLabel.Name = "totalSaleValueLabel";
             this.totalSaleValueLabel.Size = new System.Drawing.Size(122, 28);
             this.totalSaleValueLabel.TabIndex = 5;
@@ -203,7 +205,7 @@ namespace Assignment5
             // 
             this.totalCommoditiesLabel.BackColor = System.Drawing.Color.Silver;
             this.totalCommoditiesLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.totalCommoditiesLabel.Location = new System.Drawing.Point(267, 16);
+            this.totalCommoditiesLabel.Location = new System.Drawing.Point(289, 18);
             this.totalCommoditiesLabel.Name = "totalCommoditiesLabel";
             this.totalCommoditiesLabel.Size = new System.Drawing.Size(122, 28);
             this.totalCommoditiesLabel.TabIndex = 4;
@@ -212,39 +214,43 @@ namespace Assignment5
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(72, 147);
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(51, 145);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(175, 13);
+            this.label8.Size = new System.Drawing.Size(110, 17);
             this.label8.TabIndex = 3;
-            this.label8.Text = "the average value of a transaction :";
+            this.label8.Text = " Average sales: ";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(72, 112);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(51, 111);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(143, 13);
+            this.label7.Size = new System.Drawing.Size(197, 17);
             this.label7.TabIndex = 2;
-            this.label7.Text = "total number of transactions :";
+            this.label7.Text = "Total number of transactions :";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(72, 72);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(51, 69);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(92, 13);
+            this.label6.Size = new System.Drawing.Size(89, 17);
             this.label6.TabIndex = 1;
-            this.label6.Text = "total sales value : ";
+            this.label6.Text = "Total sales : ";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.label5.Location = new System.Drawing.Point(72, 31);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(51, 29);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(148, 13);
+            this.label5.Size = new System.Drawing.Size(201, 17);
             this.label5.TabIndex = 0;
-            this.label5.Text = "number of commoditiess sold: ";
+            this.label5.Text = "Number of commoditiess sold: ";
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // mealTabPage
@@ -593,6 +599,18 @@ namespace Assignment5
             this.ContentPanel.Size = new System.Drawing.Size(614, 238);
             this.ContentPanel.Load += new System.EventHandler(this.toolStripContainer1_ContentPanel_Load);
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label9.Font = new System.Drawing.Font("Segoe Script", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(292, 25);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(143, 35);
+            this.label9.TabIndex = 20;
+            this.label9.Text = "Daily Sales";
+            this.label9.Click += new System.EventHandler(this.label9_Click_1);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -606,6 +624,7 @@ namespace Assignment5
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.summaryTabPage.ResumeLayout(false);
+            this.summaryTabPage.PerformLayout();
             this.toolStripContainer1.ContentPanel.ResumeLayout(false);
             this.toolStripContainer1.ContentPanel.PerformLayout();
             this.toolStripContainer1.ResumeLayout(false);
@@ -673,6 +692,7 @@ namespace Assignment5
         private System.Windows.Forms.ToolStripPanel LeftToolStripPanel;
         private System.Windows.Forms.ToolStripContentPanel ContentPanel;
         private System.Windows.Forms.Button CancelOrder;
+        private System.Windows.Forms.Label label9;
     }
 }
 
