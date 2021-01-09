@@ -57,7 +57,7 @@ namespace Assignment5
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.deleteItem = new System.Windows.Forms.Button();
-            this.quantiryNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.quantityNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.proceedButton = new System.Windows.Forms.Button();
             this.sizeListBox = new System.Windows.Forms.ListBox();
             this.commoditiesListBox = new System.Windows.Forms.ListBox();
@@ -86,7 +86,7 @@ namespace Assignment5
             this.mealTabPage.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.quantiryNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quantityNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.SuspendLayout();
@@ -332,7 +332,7 @@ namespace Assignment5
             // 
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.deleteItem);
-            this.panel1.Controls.Add(this.quantiryNumericUpDown);
+            this.panel1.Controls.Add(this.quantityNumericUpDown);
             this.panel1.Controls.Add(this.proceedButton);
             this.panel1.Controls.Add(this.sizeListBox);
             this.panel1.Controls.Add(this.commoditiesListBox);
@@ -371,15 +371,15 @@ namespace Assignment5
             this.deleteItem.UseVisualStyleBackColor = true;
             this.deleteItem.Click += new System.EventHandler(this.deleteItem_Click);
             // 
-            // quantiryNumericUpDown
+            // quantityNumericUpDown
             // 
-            this.quantiryNumericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.quantiryNumericUpDown.Location = new System.Drawing.Point(398, 36);
-            this.quantiryNumericUpDown.Name = "quantiryNumericUpDown";
-            this.quantiryNumericUpDown.Size = new System.Drawing.Size(49, 21);
-            this.quantiryNumericUpDown.TabIndex = 15;
-            this.quantiryNumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.quantiryNumericUpDown.ValueChanged += new System.EventHandler(this.quantiryNumericUpDown_ValueChanged);
+            this.quantityNumericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.quantityNumericUpDown.Location = new System.Drawing.Point(398, 36);
+            this.quantityNumericUpDown.Name = "quantityNumericUpDown";
+            this.quantityNumericUpDown.Size = new System.Drawing.Size(49, 21);
+            this.quantityNumericUpDown.TabIndex = 15;
+            this.quantityNumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.quantityNumericUpDown.ValueChanged += new System.EventHandler(this.quantityNumericUpDown_ValueChanged);
             // 
             // proceedButton
             // 
@@ -615,7 +615,7 @@ namespace Assignment5
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.quantiryNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.quantityNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -654,7 +654,7 @@ namespace Assignment5
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TabPage summaryTabPage;
         private System.Windows.Forms.Button summary_Button;
-        private System.Windows.Forms.NumericUpDown quantiryNumericUpDown;
+        private System.Windows.Forms.NumericUpDown quantityNumericUpDown;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.TabPage searchTabPage;
         private System.Windows.Forms.Label label1;

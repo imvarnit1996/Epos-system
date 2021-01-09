@@ -114,7 +114,7 @@ namespace Assignment5
             commoditiesIndex = commoditiesListBox.SelectedIndex;
             sizeIndex = sizeListBox.SelectedIndex;
 
-            if (int.TryParse(quantiryNumericUpDown.Text, out quantity) && quantity != 0)
+            if (int.TryParse(quantityNumericUpDown.Text, out quantity) && quantity != 0)
             {
                 try
                 {
@@ -129,7 +129,7 @@ namespace Assignment5
 
                         collectivePrice = (price[sizeIndex, commoditiesIndex] * quantity);
 
-                        dataGridView1.Rows.Add(commodities[commoditiesIndex], size[sizeIndex], quantiryNumericUpDown.Text, price[sizeIndex, commoditiesIndex], collectivePrice);
+                        dataGridView1.Rows.Add(commodities[commoditiesIndex], size[sizeIndex], quantityNumericUpDown.Text, price[sizeIndex, commoditiesIndex], collectivePrice);
 
                         //stock[sizeIndex, commoditiesIndex] -= quantity;
                         tempStock[sizeIndex, commoditiesIndex] -= quantity;
@@ -138,15 +138,15 @@ namespace Assignment5
 
                        // commoditiesListBox.SelectedIndex = -1;
                        // sizeListBox.SelectedIndex = -1;
-                        quantiryNumericUpDown.Text = "0";
+                        quantityNumericUpDown.Text = "0";
 
                     }
                     else
                     {
                         MessageBox.Show("There is only " + tempStock[sizeIndex, commoditiesIndex] + " available");
-                        quantiryNumericUpDown.Focus();
+                        quantityNumericUpDown.Focus();
 
-                        quantiryNumericUpDown.Text = tempStock[sizeIndex, commoditiesIndex].ToString();
+                        quantityNumericUpDown.Text = tempStock[sizeIndex, commoditiesIndex].ToString();
 
                     }
 
@@ -190,23 +190,28 @@ namespace Assignment5
         {
             try
             {
+                Console.WriteLine("row count "+dataGridView1.Rows.Count);
+                int rowindex = dataGridView1.CurrentCell.RowIndex;
+
                 // delete the row and add the quantity back to the Tempstock
-                if (commoditiesListBox.SelectedIndex==-1)
+             
+                 if (dataGridView1.Rows.Count > 1 /*&& dataGridView1.CurrentRow.Index == dataGridView1.Rows.Count*/) 
                 {
-                    MessageBox.Show("Add something to delete");
-                }
-                else
-                {
-                    int rowindex = dataGridView1.CurrentCell.RowIndex;
+                    Console.WriteLine("row index "+rowindex);
+
                     tempStock[sizeIndex, commoditiesIndex] += Convert.ToInt32(dataGridView1.Rows[rowindex].Cells[2].Value.ToString());
                     dataGridView1.Rows.RemoveAt(rowindex);
                     if (dataGridView1.Rows[0].Index == 0) proceedButton.Enabled = false;
                 }
+                else
+                {
+                    MessageBox.Show("Select a non empty row");
+                }
 
             }
-            catch(NullReferenceException ex)
+            catch
             {
-                MessageBox.Show("Add something to delete");
+            
             }
         }
 
@@ -245,6 +250,7 @@ namespace Assignment5
             totalSaleValue += totalPrice;
             newButton.Enabled = true;
             CancelOrder.Enabled = false;
+            clearButton.Enabled = false;
             formatedStock = tempStock.Clone() as int[,];  // clone for the live stock
 
         }
@@ -254,7 +260,7 @@ namespace Assignment5
         {
             commoditiesListBox.Text = "";
             sizeListBox.Text = "";
-            quantiryNumericUpDown.Text = "";
+            quantityNumericUpDown.Text = "";
             dataGridView1.Rows.Clear();
             mealTabPage.Visible = true;
 
@@ -275,7 +281,7 @@ namespace Assignment5
         {
             commoditiesListBox.Text = "";
             sizeListBox.Text = "";
-            quantiryNumericUpDown.Text = "";
+            quantityNumericUpDown.Text = "";
             dataGridView1.Rows.Clear();
             mealTabPage.Visible = true;
 
@@ -336,7 +342,7 @@ namespace Assignment5
                 {
                     commoditiesListBox.Text = "";
                     sizeListBox.Text = "";
-                    quantiryNumericUpDown.Text = "";
+                    quantityNumericUpDown.Text = "";
                     dataGridView1.Rows.Clear();
                     mealTabPage.Visible = true;
                     // completeTabPage.Visible = false;
@@ -377,7 +383,7 @@ namespace Assignment5
         {
             commoditiesListBox.Text = "";
             sizeListBox.Text = "";
-            quantiryNumericUpDown.Text = "";
+            quantityNumericUpDown.Text = "";
             dataGridView1.Rows.Clear();
             mealTabPage.Visible = true;
             commoditiesListBox.Focus();
@@ -439,7 +445,7 @@ namespace Assignment5
 
         }
 
-        private void quantiryNumericUpDown_ValueChanged(object sender, EventArgs e)
+        private void quantityNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
 
         }
