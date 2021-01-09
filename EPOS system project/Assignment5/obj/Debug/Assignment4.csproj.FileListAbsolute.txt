@@ -1,0 +1,10 @@
+C:\Users\VarnitsMachine\Downloads\-Window-App-for-electronic-point-of-sale-EPOS--master\commercial project\Assignment5\bin\Debug\Assignment5.exe.config
+C:\Users\VarnitsMachine\Downloads\-Window-App-for-electronic-point-of-sale-EPOS--master\commercial project\Assignment5\bin\Debug\Assignment5.exe
+C:\Users\VarnitsMachine\Downloads\-Window-App-for-electronic-point-of-sale-EPOS--master\commercial project\Assignment5\bin\Debug\Assignment5.pdb
+C:\Users\VarnitsMachine\Downloads\-Window-App-for-electronic-point-of-sale-EPOS--master\commercial project\Assignment5\obj\Debug\Assignment4.csprojAssemblyReference.cache
+C:\Users\VarnitsMachine\Downloads\-Window-App-for-electronic-point-of-sale-EPOS--master\commercial project\Assignment5\obj\Debug\Assignment5.Form1.resources
+C:\Users\VarnitsMachine\Downloads\-Window-App-for-electronic-point-of-sale-EPOS--master\commercial project\Assignment5\obj\Debug\Assignment5.Properties.Resources.resources
+C:\Users\VarnitsMachine\Downloads\-Window-App-for-electronic-point-of-sale-EPOS--master\commercial project\Assignment5\obj\Debug\Assignment4.csproj.GenerateResource.cache
+C:\Users\VarnitsMachine\Downloads\-Window-App-for-electronic-point-of-sale-EPOS--master\commercial project\Assignment5\obj\Debug\Assignment4.csproj.CoreCompileInputs.cache
+C:\Users\VarnitsMachine\Downloads\-Window-App-for-electronic-point-of-sale-EPOS--master\commercial project\Assignment5\obj\Debug\Assignment5.exe
+C:\Users\VarnitsMachine\Downloads\-Window-App-for-electronic-point-of-sale-EPOS--master\commercial project\Assignment5\obj\Debug\Assignment5.pdb
