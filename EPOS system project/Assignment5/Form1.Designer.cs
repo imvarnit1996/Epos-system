@@ -37,6 +37,7 @@ namespace Assignment5
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.ragle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.summaryTabPage = new System.Windows.Forms.TabPage();
+            this.label9 = new System.Windows.Forms.Label();
             this.summary_Button = new System.Windows.Forms.Button();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.averageLable = new System.Windows.Forms.Label();
@@ -55,6 +56,10 @@ namespace Assignment5
             this.newButton = new System.Windows.Forms.Button();
             this.totalPriceLabel = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.CollectivePriceLabel = new System.Windows.Forms.Label();
+            this.priceLabel = new System.Windows.Forms.Label();
+            this.collectivePriceTextBox = new System.Windows.Forms.TextBox();
+            this.priceTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.deleteItem = new System.Windows.Forms.Button();
             this.quantityNumericUpDown = new System.Windows.Forms.NumericUpDown();
@@ -79,7 +84,6 @@ namespace Assignment5
             this.RightToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.LeftToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.ContentPanel = new System.Windows.Forms.ToolStripContentPanel();
-            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.summaryTabPage.SuspendLayout();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
@@ -139,6 +143,18 @@ namespace Assignment5
             this.summaryTabPage.UseVisualStyleBackColor = true;
             this.summaryTabPage.Click += new System.EventHandler(this.summaryTabPage_Click);
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label9.Font = new System.Drawing.Font("Segoe Script", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(289, 50);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(143, 35);
+            this.label9.TabIndex = 20;
+            this.label9.Text = "Daily Sales";
+            this.label9.Click += new System.EventHandler(this.label9_Click_1);
+            // 
             // summary_Button
             // 
             this.summary_Button.Location = new System.Drawing.Point(49, 32);
@@ -179,7 +195,7 @@ namespace Assignment5
             // averageLable
             // 
             this.averageLable.BackColor = System.Drawing.Color.DarkGray;
-            this.averageLable.Location = new System.Drawing.Point(289, 145);
+            this.averageLable.Location = new System.Drawing.Point(289, 141);
             this.averageLable.Name = "averageLable";
             this.averageLable.Size = new System.Drawing.Size(122, 24);
             this.averageLable.TabIndex = 7;
@@ -215,7 +231,7 @@ namespace Assignment5
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(51, 145);
+            this.label8.Location = new System.Drawing.Point(92, 145);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(110, 17);
             this.label8.TabIndex = 3;
@@ -225,7 +241,7 @@ namespace Assignment5
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(51, 111);
+            this.label7.Location = new System.Drawing.Point(49, 111);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(197, 17);
             this.label7.TabIndex = 2;
@@ -235,7 +251,7 @@ namespace Assignment5
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(51, 69);
+            this.label6.Location = new System.Drawing.Point(103, 69);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(89, 17);
             this.label6.TabIndex = 1;
@@ -246,7 +262,7 @@ namespace Assignment5
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.WhiteSmoke;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(51, 29);
+            this.label5.Location = new System.Drawing.Point(47, 24);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(201, 17);
             this.label5.TabIndex = 0;
@@ -274,7 +290,7 @@ namespace Assignment5
             this.panel2.Controls.Add(this.completeOrderButton);
             this.panel2.Controls.Add(this.newButton);
             this.panel2.Controls.Add(this.totalPriceLabel);
-            this.panel2.Location = new System.Drawing.Point(96, 290);
+            this.panel2.Location = new System.Drawing.Point(85, 315);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(543, 100);
             this.panel2.TabIndex = 23;
@@ -336,6 +352,10 @@ namespace Assignment5
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.CollectivePriceLabel);
+            this.panel1.Controls.Add(this.priceLabel);
+            this.panel1.Controls.Add(this.collectivePriceTextBox);
+            this.panel1.Controls.Add(this.priceTextBox);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.deleteItem);
             this.panel1.Controls.Add(this.quantityNumericUpDown);
@@ -349,10 +369,48 @@ namespace Assignment5
             this.panel1.Controls.Add(this.label3);
             this.panel1.Location = new System.Drawing.Point(6, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(717, 248);
+            this.panel1.Size = new System.Drawing.Size(717, 307);
             this.panel1.TabIndex = 22;
             this.toolTip1.SetToolTip(this.panel1, "click here get the total");
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // CollectivePriceLabel
+            // 
+            this.CollectivePriceLabel.AutoSize = true;
+            this.CollectivePriceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CollectivePriceLabel.Location = new System.Drawing.Point(451, 114);
+            this.CollectivePriceLabel.Name = "CollectivePriceLabel";
+            this.CollectivePriceLabel.Size = new System.Drawing.Size(112, 17);
+            this.CollectivePriceLabel.TabIndex = 20;
+            this.CollectivePriceLabel.Text = "Collective Price :";
+            // 
+            // priceLabel
+            // 
+            this.priceLabel.AutoSize = true;
+            this.priceLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.priceLabel.Location = new System.Drawing.Point(205, 114);
+            this.priceLabel.Name = "priceLabel";
+            this.priceLabel.Size = new System.Drawing.Size(101, 17);
+            this.priceLabel.TabIndex = 19;
+            this.priceLabel.Text = "Price for one : ";
+            this.priceLabel.Click += new System.EventHandler(this.label10_Click);
+            // 
+            // collectivePriceTextBox
+            // 
+            this.collectivePriceTextBox.Location = new System.Drawing.Point(566, 113);
+            this.collectivePriceTextBox.Name = "collectivePriceTextBox";
+            this.collectivePriceTextBox.ReadOnly = true;
+            this.collectivePriceTextBox.Size = new System.Drawing.Size(100, 20);
+            this.collectivePriceTextBox.TabIndex = 18;
+            // 
+            // priceTextBox
+            // 
+            this.priceTextBox.Location = new System.Drawing.Point(312, 113);
+            this.priceTextBox.Name = "priceTextBox";
+            this.priceTextBox.ReadOnly = true;
+            this.priceTextBox.Size = new System.Drawing.Size(100, 20);
+            this.priceTextBox.TabIndex = 17;
+            this.priceTextBox.TextChanged += new System.EventHandler(this.priceTextBox_TextChanged);
             // 
             // label1
             // 
@@ -370,9 +428,9 @@ namespace Assignment5
             this.deleteItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.deleteItem.Location = new System.Drawing.Point(491, 51);
             this.deleteItem.Name = "deleteItem";
-            this.deleteItem.Size = new System.Drawing.Size(55, 23);
+            this.deleteItem.Size = new System.Drawing.Size(64, 23);
             this.deleteItem.TabIndex = 12;
-            this.deleteItem.Text = "&Delete Item";
+            this.deleteItem.Text = "DELETE";
             this.toolTip1.SetToolTip(this.deleteItem, "click here to delete the item in the row");
             this.deleteItem.UseVisualStyleBackColor = true;
             this.deleteItem.Click += new System.EventHandler(this.deleteItem_Click);
@@ -390,11 +448,11 @@ namespace Assignment5
             // proceedButton
             // 
             this.proceedButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.proceedButton.Location = new System.Drawing.Point(575, 19);
+            this.proceedButton.Location = new System.Drawing.Point(576, 24);
             this.proceedButton.Name = "proceedButton";
-            this.proceedButton.Size = new System.Drawing.Size(116, 52);
+            this.proceedButton.Size = new System.Drawing.Size(116, 45);
             this.proceedButton.TabIndex = 3;
-            this.proceedButton.Text = "Proceed to complete the order";
+            this.proceedButton.Text = "Proceed with the selected items";
             this.toolTip1.SetToolTip(this.proceedButton, "click here to get the total");
             this.proceedButton.UseVisualStyleBackColor = true;
             this.proceedButton.Click += new System.EventHandler(this.proceedButton_Click);
@@ -438,7 +496,7 @@ namespace Assignment5
             "Curtains"});
             this.commoditiesListBox.Location = new System.Drawing.Point(81, 12);
             this.commoditiesListBox.Name = "commoditiesListBox";
-            this.commoditiesListBox.Size = new System.Drawing.Size(100, 214);
+            this.commoditiesListBox.Size = new System.Drawing.Size(100, 274);
             this.commoditiesListBox.TabIndex = 13;
             this.commoditiesListBox.SelectedIndexChanged += new System.EventHandler(this.commoditiesListBox_SelectedIndexChanged);
             // 
@@ -464,7 +522,7 @@ namespace Assignment5
             this.Column4,
             this.Column5});
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dataGridView1.Location = new System.Drawing.Point(194, 89);
+            this.dataGridView1.Location = new System.Drawing.Point(187, 156);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(517, 133);
@@ -514,7 +572,7 @@ namespace Assignment5
             // addButton
             // 
             this.addButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addButton.Location = new System.Drawing.Point(491, 19);
+            this.addButton.Location = new System.Drawing.Point(500, 19);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(55, 23);
             this.addButton.TabIndex = 6;
@@ -547,6 +605,7 @@ namespace Assignment5
             // 
             // searchTabPage
             // 
+            this.searchTabPage.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("searchTabPage.BackgroundImage")));
             this.searchTabPage.Location = new System.Drawing.Point(4, 22);
             this.searchTabPage.Name = "searchTabPage";
             this.searchTabPage.Padding = new System.Windows.Forms.Padding(3);
@@ -599,18 +658,6 @@ namespace Assignment5
             this.ContentPanel.Size = new System.Drawing.Size(614, 238);
             this.ContentPanel.Load += new System.EventHandler(this.toolStripContainer1_ContentPanel_Load);
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.label9.Font = new System.Drawing.Font("Segoe Script", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(292, 25);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(143, 35);
-            this.label9.TabIndex = 20;
-            this.label9.Text = "Daily Sales";
-            this.label9.Click += new System.EventHandler(this.label9_Click_1);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -647,7 +694,7 @@ namespace Assignment5
         private System.Windows.Forms.Button clearButton;
         private System.Windows.Forms.Button exit_Button;
         private System.Windows.Forms.ErrorProvider errorProvider1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sizes;
+        //private System.Windows.Forms.DataGridViewTextBoxColumn sizes;
         private System.Windows.Forms.DataGridViewTextBoxColumn ragle;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage mealTabPage;
@@ -693,6 +740,10 @@ namespace Assignment5
         private System.Windows.Forms.ToolStripContentPanel ContentPanel;
         private System.Windows.Forms.Button CancelOrder;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label priceLabel;
+        private System.Windows.Forms.TextBox collectivePriceTextBox;
+        private System.Windows.Forms.TextBox priceTextBox;
+        private System.Windows.Forms.Label CollectivePriceLabel;
     }
 }
 

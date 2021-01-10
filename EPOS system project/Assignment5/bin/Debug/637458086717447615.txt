@@ -1,6 +1,0 @@
-*******************Transaction for the day******************
-*******************MR BAGEL*********************************
-transaction ID: 20210109050421 Date: 09-01-2021 Time: 05:04:21 Item: Trousers size: Medium Quantiy: 1 Individual Price :2.99 Collective price :2.99
-
-
-
