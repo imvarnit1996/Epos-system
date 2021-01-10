@@ -13,7 +13,8 @@ namespace Assignment5
 {
     public partial class Form1 : Form
     {
-        readonly string[] commodities = new string[] { "Shirt",
+        readonly string[] commodities = new string[] { 
+            "Shirt",
             "Jeans",
             "T-shirt",
             "Trousers",
@@ -30,9 +31,12 @@ namespace Assignment5
             "Blankets",
             "Curtains" };
 
-
-        readonly string[] size = new string[] { "Small", "Medium", "Regular", "Large", "Extra Large" };
-
+        readonly string[] size = new string[] { 
+            "Small", 
+            "Medium", 
+            "Regular", 
+            "Large", 
+            "Extra Large" };
 
         readonly decimal[,] price = {{3.45m, 3.50m,  3.55m,  3.38m,  6.83m,  3.4m,   4.49m,  4.05m,  5.5m,   8.5m,   4.25m,  4.5m,  5.36m,   6.0m,   3.23m,  4.45m},
                                {2.95m,  3.0m,   3.05m,  2.99m,  5.69m,  2.9m,   3.99m,  3.12m,  4.49m,  8.89m,  3.75m,  3.97m,  5.0m,   5.5m,   2.23m,  3.95m},
@@ -46,12 +50,10 @@ namespace Assignment5
                                  {5,  13, 11, 12, 23, 12, 4,  7,  10, 8,  6,  4,  21, 4,  6,  8},
                                  {6,  2,  0,  2,  4,  6,  3,  4,  5,  6,  7,  8,  9,  6,  23, 8}};
 
-
         int commoditiesIndex, sizeIndex, quantity, totalCommodities, totalNoTrans;
         decimal totalPrice, collectivePrice, totalSaleValue;
         string receipt, totalReceipt;
         bool count = true;
-
 
         int[,] tempStock = new int[5, 16];
         int[,] closingStock = new int[5, 16];
@@ -67,7 +69,7 @@ namespace Assignment5
             try
             {
                 //read the stock form the closing stock
-                String input = File.ReadAllText("closingStock.txt");
+                String input = File.ReadAllText(@"Closing Stock.txt");
                 //  Console.WriteLine(input);
                 int i = 0, j = 0;
 
@@ -83,8 +85,8 @@ namespace Assignment5
                 }
 
                 // read the price from the text file
-                String loadPrice = File.ReadAllText("prices.txt");
-                Console.WriteLine(loadPrice);
+                String loadPrice = File.ReadAllText("Prices.txt");
+              //  Console.WriteLine(loadPrice);
 
                 int k = 0, l = 0;
 
@@ -98,7 +100,6 @@ namespace Assignment5
                     }
                     k++;
                 }
-
 
             }
             catch { }
@@ -114,8 +115,7 @@ namespace Assignment5
             commoditiesIndex = commoditiesListBox.SelectedIndex;
             sizeIndex = sizeListBox.SelectedIndex;
 
-
-            if(commoditiesIndex == -1  )
+            if (commoditiesIndex == -1)
             {
                 MessageBox.Show("please select a commodity");
 
@@ -125,7 +125,7 @@ namespace Assignment5
                 MessageBox.Show("please select a size");
 
             }
-            else 
+            else
             {
                 if (int.TryParse(quantityNumericUpDown.Text, out quantity) && quantity != 0)
                 {
@@ -144,13 +144,12 @@ namespace Assignment5
 
                             dataGridView1.Rows.Add(commodities[commoditiesIndex], size[sizeIndex], quantityNumericUpDown.Text, price[sizeIndex, commoditiesIndex], collectivePrice);
 
-                            //stock[sizeIndex, commoditiesIndex] -= quantity;
+                         
                             tempStock[sizeIndex, commoditiesIndex] -= quantity;
 
                             count = false; // clone is stopped by the flag
 
-                            // commoditiesListBox.SelectedIndex = -1;
-                            // sizeListBox.SelectedIndex = -1;
+                          
                             quantityNumericUpDown.Text = "0";
                             proceedButton.Enabled = true;
                         }
@@ -158,20 +157,19 @@ namespace Assignment5
                         {
                             MessageBox.Show("There is only " + tempStock[sizeIndex, commoditiesIndex] + " available");
                             quantityNumericUpDown.Focus();
-
                             quantityNumericUpDown.Text = tempStock[sizeIndex, commoditiesIndex].ToString();
 
                         }
 
                     }
                     catch { }
-                    
+
                 }
                 else
                 {
                     MessageBox.Show("Please enter the valid input");
                 }
-               
+
             }
 
         }
@@ -181,8 +179,8 @@ namespace Assignment5
             // proceedButton.Enabled = false;
             commoditiesIndex = commoditiesListBox.SelectedIndex;
             sizeIndex = sizeListBox.SelectedIndex;
-            
-            if (commoditiesIndex >=0  && sizeIndex >=0 )
+
+            if (commoditiesIndex >= 0 && sizeIndex >= 0)
             {
                 if (int.TryParse(quantityNumericUpDown.Text, out quantity))
                 {
@@ -250,11 +248,11 @@ namespace Assignment5
             try
             {
                 // delete the row and add the quantity back to the Tempstock
-             
-                 if (dataGridView1.Rows.Count > 1 /*&& dataGridView1.CurrentRow.Index == dataGridView1.Rows.Count*/) 
+
+                if (dataGridView1.Rows.Count > 1 /*&& dataGridView1.CurrentRow.Index == dataGridView1.Rows.Count*/ )
                 {
                     int rowindex = dataGridView1.CurrentCell.RowIndex;
-                 //   Console.WriteLine("row index "+rowindex);
+                    //   Console.WriteLine("row index "+rowindex);
                     tempStock[sizeIndex, commoditiesIndex] += Convert.ToInt32(dataGridView1.Rows[rowindex].Cells[2].Value.ToString());
                     dataGridView1.Rows.RemoveAt(rowindex);
                     if (dataGridView1.Rows[0].Index == 0) proceedButton.Enabled = false;
@@ -267,7 +265,7 @@ namespace Assignment5
             }
             catch
             {
-            
+
             }
         }
 
@@ -276,30 +274,29 @@ namespace Assignment5
         {
 
             int dgvRowIndex = dataGridView1.RowCount;
-            var transactionId = DateTime.Now.ToString("yyyyMMddhhmmss");
-            String date_time_transactionId = "Transaction ID: " + transactionId 
-                                            +" Date: " + DateTime.Now.ToString("dd-MM-yyyy")
-                                            + " Time: " + DateTime.Now.ToString("hh:mm:ss") 
-                                            + Environment.NewLine;
+            var OrderId = DateTime.Now.ToString("yyyyMMddhhmmss");
+            String date_time_OrderId = "Order ID: " + OrderId +
+              " Time: " + DateTime.Now.ToString("hh:mm:ss") +
+              Environment.NewLine;
             try
             {
-               for (int i = 0; i < dgvRowIndex - 1; i++)
+                for (int i = 0; i < dgvRowIndex - 1; i++)
                 {
-                    receipt += (Environment.NewLine+ "Item: " + dataGridView1.Rows[i].Cells[0].Value.ToString() 
-                                + " size: " + dataGridView1.Rows[i].Cells[1].Value.ToString() 
-                                + " Quantiy: "  + dataGridView1.Rows[i].Cells[2].Value.ToString() 
-                                + " Individual Price: "    + dataGridView1.Rows[i].Cells[3].Value.ToString()
-                                + " Collective price: " + dataGridView1.Rows[i].Cells[4].Value.ToString() + "\n").ToString();
+                    receipt += (Environment.NewLine + "Item: " + dataGridView1.Rows[i].Cells[0].Value.ToString() +
+                      " size: " + dataGridView1.Rows[i].Cells[1].Value.ToString() +
+                      " Quantiy: " + dataGridView1.Rows[i].Cells[2].Value.ToString() +
+                      " Individual Price: " + dataGridView1.Rows[i].Cells[3].Value.ToString() +
+                      " Collective price: " + dataGridView1.Rows[i].Cells[4].Value.ToString() + "\n").ToString();
 
                     totalCommodities += Convert.ToInt32(dataGridView1.Rows[i].Cells[2].Value.ToString());
 
                 }
 
-                // Console.WriteLine(" reciept " + receipt);
+                Console.WriteLine(" reciept " + receipt);
 
-                totalReceipt += (date_time_transactionId + receipt + "\n");
-                // Console.WriteLine("total reciept " + totalReceipt);
-                MessageBox.Show("Order sucessfull \n" + date_time_transactionId + receipt);
+                totalReceipt += (date_time_OrderId + receipt + "\n");
+                Console.WriteLine("Total Reciept " + totalReceipt);
+                MessageBox.Show("Order sucessfull \n" + date_time_OrderId + receipt);
 
             }
             catch { }
@@ -311,7 +308,7 @@ namespace Assignment5
             newButton.Enabled = true;
             CancelOrder.Enabled = false;
             clearButton.Enabled = false;
-            closingStock = tempStock.Clone() as int[,];  // clone for the live stock
+            closingStock = tempStock.Clone() as int[,]; // clone for the live stock
 
         }
 
@@ -333,7 +330,7 @@ namespace Assignment5
             proceedButton.Enabled = false;
 
             panel1.Visible = true;
-           // proceedButton.Enabled = true;
+            // proceedButton.Enabled = true;
             totalPrice = 0;
             panel2.Visible = false;
         }
@@ -354,24 +351,23 @@ namespace Assignment5
             proceedButton.Enabled = false;
 
             panel1.Visible = true;
-           // proceedButton.Enabled = true;
+            // proceedButton.Enabled = true;
             totalPrice = 0;
             panel2.Visible = false;
         }
 
-
         private void exit_Button_Click(object sender, EventArgs e)
         {
-            if (totalReceipt == null ) this.Close();
+            if (totalReceipt == null) this.Close();
             else
             {
-                DialogResult exit = MessageBox.Show("ARE YOU SURE YOU WANT TO EXIT(THIS END THE TRANSACTION FOR THE DAY)", "WARNING", MessageBoxButtons.YesNo);
+                DialogResult exit = MessageBox.Show("ARE YOU SURE YOU WANT TO EXIT(THIS END THE ORDER FOR THE DAY)", "WARNING", MessageBoxButtons.YesNo);
                 if (exit == DialogResult.Yes)
                 {
                     try
                     {
                         //write the closing stock to file so it can load the for the next day
-                        StreamWriter FS = new StreamWriter("closingStock.txt");
+                        StreamWriter FS = new StreamWriter(@"Closing Stock.txt");
 
                         for (int i = 0; i < size.Length; i++)
                         {
@@ -386,19 +382,28 @@ namespace Assignment5
                         }
 
                         FS.Close();
-                        // summary Transaction 
-                        var myUniqueFileName = string.Format(@"{0}.txt",DateTime.Now.Ticks);
+                        // summary Order 
+                        //   var myUniqueFileName = string.Format(@"{0}.txt",DateTime.Now.Ticks);
+
+                        var fileName = "orders.txt";
                         StreamWriter TR;
-                        TR = File.CreateText(myUniqueFileName);
-                        TR.WriteLine("*******************Transaction for the day******************");
-                        TR.WriteLine("************************************************************");
-                        Console.WriteLine("Total Reciept " + totalReceipt);
-                        TR.WriteLine(totalReceipt + "\n");
+                        //  TR = File.CreateText(fileName);
+                        TR = File.AppendText(fileName);
+                        TR.WriteLine("*******************Orders for the date " + DateTime.Now.ToString("dd-MM-yyyy") +
+                          "******************" + Environment.NewLine +
+                          "*******************************************************************" + Environment.NewLine +
+                          totalReceipt + Environment.NewLine);
+
+                        //Console.WriteLine("Total Reciept " + totalReceipt);
+
                         TR.Flush();
                         TR.Close();
 
                     }
-                    catch { }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Exception \n" + ex);
+                    }
                     this.Close();
                 }
                 else if (exit == DialogResult.No)
@@ -421,7 +426,6 @@ namespace Assignment5
                     panel2.Visible = false;
                 }
             }
-           
 
         }
 
@@ -441,7 +445,7 @@ namespace Assignment5
 
         }
 
-        //clears and ready for the new transaction
+        //clears and ready for the new Order
         private void clearButton_Click(object sender, EventArgs e)
         {
             commoditiesListBox.Text = "";
@@ -455,10 +459,6 @@ namespace Assignment5
             totalPriceLabel.Text = "";
             panel2.Visible = false;
         }
-
-      
-
-      
 
         private void employeeButton_Click(object sender, EventArgs e)
         {
@@ -475,7 +475,7 @@ namespace Assignment5
         {
 
         }
-     
+
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -500,8 +500,6 @@ namespace Assignment5
         {
 
         }
-
-     
 
         private void label1_Click_1(object sender, EventArgs e)
         {
@@ -551,12 +549,8 @@ namespace Assignment5
         private void button1_Click(object sender, EventArgs e)
         {
 
-
         }
-        private void summaryTabPage_Click(object sender, EventArgs e)
-        {
-        }
-
+        private void summaryTabPage_Click(object sender, EventArgs e) { }
 
         private void searchTabPage_Click(object sender, EventArgs e)
         {

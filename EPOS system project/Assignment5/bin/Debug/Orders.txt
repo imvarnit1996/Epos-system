@@ -1,0 +1,26 @@
+*******************Orders for the date 10-01-2021******************
+*******************************************************************
+Order ID: 20210110084647 Time: 08:46:47
+
+Item: Trousers size: Regular Quantiy: 2 Individual Price: 3.38 Collective price: 6.76
+
+
+
+*******************Orders for the date 10-01-2021******************
+*******************************************************************
+Order ID: 20210110084721 Time: 08:47:21
+
+Item: Skirt  size: Regular Quantiy: 2 Individual Price: 6.83 Collective price: 13.66
+
+
+
+*******************Orders for the date 10-01-2021******************
+*******************************************************************
+Order ID: 20210110084945 Time: 08:49:45
+
+Item: Trousers size: Regular Quantiy: 2 Individual Price: 3.38 Collective price: 6.76
+
+Item: Jackets size: Large Quantiy: 2 Individual Price: 4.49 Collective price: 8.98
+
+
+
