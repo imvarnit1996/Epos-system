@@ -84,6 +84,9 @@ namespace Assignment5
             this.RightToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.LeftToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.ContentPanel = new System.Windows.Forms.ToolStripContentPanel();
+            this.SearchLabel = new System.Windows.Forms.Label();
+            this.HeadSearhLabel = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.summaryTabPage.SuspendLayout();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
@@ -94,6 +97,7 @@ namespace Assignment5
             ((System.ComponentModel.ISupportInitialize)(this.quantityNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tabControl1.SuspendLayout();
+            this.searchTabPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // clearButton
@@ -437,6 +441,7 @@ namespace Assignment5
             // 
             // quantityNumericUpDown
             // 
+            this.quantityNumericUpDown.BackColor = System.Drawing.SystemColors.MenuBar;
             this.quantityNumericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.quantityNumericUpDown.Location = new System.Drawing.Point(398, 36);
             this.quantityNumericUpDown.Name = "quantityNumericUpDown";
@@ -459,6 +464,7 @@ namespace Assignment5
             // 
             // sizeListBox
             // 
+            this.sizeListBox.BackColor = System.Drawing.SystemColors.MenuBar;
             this.sizeListBox.FormattingEnabled = true;
             this.sizeListBox.Items.AddRange(new object[] {
             "Small ",
@@ -474,6 +480,7 @@ namespace Assignment5
             // 
             // commoditiesListBox
             // 
+            this.commoditiesListBox.BackColor = System.Drawing.SystemColors.MenuBar;
             this.commoditiesListBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.commoditiesListBox.FormattingEnabled = true;
             this.commoditiesListBox.ItemHeight = 15;
@@ -513,7 +520,7 @@ namespace Assignment5
             // 
             // dataGridView1
             // 
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.HighlightText;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
@@ -606,6 +613,9 @@ namespace Assignment5
             // searchTabPage
             // 
             this.searchTabPage.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("searchTabPage.BackgroundImage")));
+            this.searchTabPage.Controls.Add(this.textBox1);
+            this.searchTabPage.Controls.Add(this.HeadSearhLabel);
+            this.searchTabPage.Controls.Add(this.SearchLabel);
             this.searchTabPage.Location = new System.Drawing.Point(4, 22);
             this.searchTabPage.Name = "searchTabPage";
             this.searchTabPage.Padding = new System.Windows.Forms.Padding(3);
@@ -658,6 +668,34 @@ namespace Assignment5
             this.ContentPanel.Size = new System.Drawing.Size(614, 238);
             this.ContentPanel.Load += new System.EventHandler(this.toolStripContainer1_ContentPanel_Load);
             // 
+            // SearchLabel
+            // 
+            this.SearchLabel.AutoSize = true;
+            this.SearchLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchLabel.Location = new System.Drawing.Point(168, 156);
+            this.SearchLabel.Name = "SearchLabel";
+            this.SearchLabel.Size = new System.Drawing.Size(114, 20);
+            this.SearchLabel.TabIndex = 0;
+            this.SearchLabel.Text = "Enter Order Id:";
+            // 
+            // HeadSearhLabel
+            // 
+            this.HeadSearhLabel.AutoSize = true;
+            this.HeadSearhLabel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.HeadSearhLabel.Font = new System.Drawing.Font("Segoe Print", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HeadSearhLabel.Location = new System.Drawing.Point(225, 70);
+            this.HeadSearhLabel.Name = "HeadSearhLabel";
+            this.HeadSearhLabel.Size = new System.Drawing.Size(167, 36);
+            this.HeadSearhLabel.TabIndex = 1;
+            this.HeadSearhLabel.Text = "Search Orders";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(351, 156);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 2;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -684,6 +722,8 @@ namespace Assignment5
             ((System.ComponentModel.ISupportInitialize)(this.quantityNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tabControl1.ResumeLayout(false);
+            this.searchTabPage.ResumeLayout(false);
+            this.searchTabPage.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -744,6 +784,9 @@ namespace Assignment5
         private System.Windows.Forms.TextBox collectivePriceTextBox;
         private System.Windows.Forms.TextBox priceTextBox;
         private System.Windows.Forms.Label CollectivePriceLabel;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label HeadSearhLabel;
+        private System.Windows.Forms.Label SearchLabel;
     }
 }
 

@@ -263,9 +263,9 @@ namespace Assignment5
                 }
 
             }
-            catch
+            catch(Exception ex)
             {
-
+                MessageBox.Show("Select a non empty row");
             }
         }
 
