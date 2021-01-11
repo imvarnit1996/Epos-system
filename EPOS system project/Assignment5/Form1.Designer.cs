@@ -90,6 +90,7 @@ namespace Assignment5
             this.RightToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.LeftToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.ContentPanel = new System.Windows.Forms.ToolStripContentPanel();
+            this.label10 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.summaryTabPage.SuspendLayout();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
@@ -679,6 +680,7 @@ namespace Assignment5
             // searchTextBox
             // 
             this.searchTextBox.Location = new System.Drawing.Point(351, 156);
+            this.searchTextBox.MaxLength = 12;
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.Size = new System.Drawing.Size(100, 20);
             this.searchTextBox.TabIndex = 2;
@@ -757,11 +759,24 @@ namespace Assignment5
             this.ContentPanel.Size = new System.Drawing.Size(614, 238);
             this.ContentPanel.Load += new System.EventHandler(this.toolStripContainer1_ContentPanel_Load);
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.Red;
+            this.label10.Location = new System.Drawing.Point(422, 9);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(377, 17);
+            this.label10.TabIndex = 4;
+            this.label10.Text = "only close by END button otherwise stock wont be updated";
+            this.label10.Click += new System.EventHandler(this.label10_Click_1);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(820, 614);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.exit_Button);
             this.Controls.Add(this.clearButton);
             this.Controls.Add(this.tabControl1);
@@ -786,6 +801,7 @@ namespace Assignment5
             this.searchTabPage.ResumeLayout(false);
             this.searchTabPage.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -851,6 +867,7 @@ namespace Assignment5
         private System.Windows.Forms.Button ManagementReport;
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.Label searchResultLabel;
+        private System.Windows.Forms.Label label10;
     }
 }
 
