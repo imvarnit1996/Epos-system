@@ -1,9 +1,32 @@
-*******************Orders for the date 11-01-2021******************
-*******************************************************************#
 
-Order ID: 210111045020 Time: 04:50:20
-Item: Trousers size: Medium Quantiy: 2 Individual Price: 2.99 Collective price: 5.98
+Order ID: 210111131946 Date: 11-01-2021 Time: 01:19:46
+Item: Shorts size: Regular Quantiy: 2 Individual Price: 4.49 Collective price: 8.98
+Item: SweatShirts size: Regular Quantiy: 1 Individual Price: 5.5 Collective price: 5.5;
 
-Order ID: 210111045027 Time: 04:50:27
-Item: Jackets size: Extra Large Quantiy: 2 Individual Price: 4.93 Collective price: 9.86
-;
+Order ID: 210111131959 Date: 11-01-2021 Time: 01:19:59
+Item: Sweaters size: Regular Quantiy: 1 Individual Price: 4.25 Collective price: 4.25;
+
+Order ID: 210111132112 Date: 11-01-2021 Time: 01:21:12
+Item: T-shirt size: Small Quantiy: 2 Individual Price: 3.55 Collective price: 7.10
+Item: Vest size: Small Quantiy: 1 Individual Price: 3.4 Collective price: 3.4;
+
+Order ID: 210111132359 Date: 11-01-2021 Time: 01:23:59
+Item: Trousers size: Small Quantiy: 2 Individual Price: 3.38 Collective price: 6.76;
+
+Order ID: 210111132532 Date: 11-01-2021 Time: 01:25:32
+Item: T-shirt size: Regular Quantiy: 2 Individual Price: 3.55 Collective price: 7.10;
+
+Order ID: 210111132601 Date: 11-01-2021 Time: 01:26:01
+Item: T-shirt size: Regular Quantiy: 2 Individual Price: 3.55 Collective price: 7.10;
+
+Order ID: 210111132624 Date: 11-01-2021 Time: 01:26:24
+Item: T-shirt size: Regular Quantiy: 2 Individual Price: 3.55 Collective price: 7.10;
+
+Order ID: 210111134619 Date: 11-01-2021 Time: 01:46:19
+Item: Skirt  size: Medium Quantiy: 1 Individual Price: 5.69 Collective price: 5.69;
+
+Order ID: 210111144718 Date: 11-01-2021 Time: 02:47:18
+Item: Skirt  size: Medium Quantiy: 2 Individual Price: 5.69 Collective price: 11.38;
+
+Order ID: 210111144731 Date: 11-01-2021 Time: 02:47:31
+Item: Skirt  size: Regular Quantiy: 2 Individual Price: 6.83 Collective price: 13.66;
