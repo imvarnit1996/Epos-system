@@ -72,7 +72,7 @@ namespace Assignment5
             {
                 //read the stock form the closing stock
                 String input = File.ReadAllText(@"Closing Stock.txt");
-                //  Console.WriteLine(input);
+               
                 int i = 0, j = 0;
 
                 foreach (var row in input.Split('\n'))
@@ -88,7 +88,7 @@ namespace Assignment5
 
                 // read the price from the text file
                 String loadPrice = File.ReadAllText("Prices.txt");
-              //  Console.WriteLine(loadPrice);
+          
 
                 int k = 0, l = 0;
 
@@ -202,18 +202,17 @@ namespace Assignment5
 
         private void commoditiesListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-           //Console.WriteLine((sender as ListBox).Name);
+           
             priceChangeDetection((sender as ListBox).Name);
         }
 
         private void sizeListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //Console.WriteLine((sender as ListBox).Name);
+           
             priceChangeDetection((sender as ListBox).Name);
         }
         private void quantityNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
-            Console.WriteLine((sender as NumericUpDown).Name);
             priceChangeDetection((sender as NumericUpDown).Name);
         }
 
@@ -250,7 +249,7 @@ namespace Assignment5
                 if (dataGridView1.Rows.Count > 1 /*&& dataGridView1.CurrentRow.Index == dataGridView1.Rows.Count*/ )
                 {
                     int rowindex = dataGridView1.CurrentCell.RowIndex;
-                    //   Console.WriteLine("row index "+rowindex);
+                   
                     tempStock[sizeIndex, commoditiesIndex] += Convert.ToInt32(dataGridView1.Rows[rowindex].Cells[2].Value.ToString());
                     dataGridView1.Rows.RemoveAt(rowindex);
                     if (dataGridView1.Rows[0].Index == 0) proceedButton.Enabled = false;
@@ -289,8 +288,6 @@ namespace Assignment5
                     totalCommodities += Convert.ToInt32(dataGridView1.Rows[i].Cells[2].Value.ToString());
 
                 }
-
-                Console.WriteLine(" reciept " + receipt);
 
                
                 MessageBox.Show("Order sucessfull"+Environment.NewLine + time_OrderId + receipt);
@@ -338,7 +335,7 @@ namespace Assignment5
             clearButton.Enabled = true;
 
             panel1.Visible = true;
-            // proceedButton.Enabled = true;
+     
             totalPrice = 0;
             panel2.Visible = false;
         }
@@ -366,8 +363,6 @@ namespace Assignment5
 
         private void exit_Button_Click(object sender, EventArgs e)
         {
-           // Console.WriteLine((sender as Button).Name);
-
             if (receipt == null)
            {
                
@@ -484,9 +479,9 @@ namespace Assignment5
 
                         if (order.Contains(search_text))
                         {
-                            // string order_substring = order.Substring(order.IndexOf("#")).Trim('#');
+                           
                             searchResultLabel.Text = order.Trim().Trim(); ;
-                            //Console.WriteLine(order_substring);
+                          
                             return;
                         }
 
