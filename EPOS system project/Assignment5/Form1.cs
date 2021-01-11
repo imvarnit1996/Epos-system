@@ -31,7 +31,7 @@ namespace Assignment5
             "Blankets",
             "Curtains" };
 
-        readonly string[] size = new string[] { 
+        readonly string[] sizes = new string[] { 
             "Small", 
             "Medium", 
             "Regular", 
@@ -142,9 +142,8 @@ namespace Assignment5
 
                             collectivePrice = (price[sizeIndex, commoditiesIndex] * quantity);
 
-                            dataGridView1.Rows.Add(commodities[commoditiesIndex], size[sizeIndex], quantityNumericUpDown.Text, price[sizeIndex, commoditiesIndex], collectivePrice);
+                            dataGridView1.Rows.Add(commodities[commoditiesIndex], sizes[sizeIndex], quantityNumericUpDown.Text, price[sizeIndex, commoditiesIndex], collectivePrice);
 
-                         
                             tempStock[sizeIndex, commoditiesIndex] -= quantity;
 
                             count = false; // clone is stopped by the flag
@@ -274,10 +273,8 @@ namespace Assignment5
         {
 
             int dgvRowIndex = dataGridView1.RowCount;
-            var OrderId = DateTime.Now.ToString("yyyyMMddhhmmss");
-            String date_time_OrderId = "Order ID: " + OrderId +
-              " Time: " + DateTime.Now.ToString("hh:mm:ss") +
-              Environment.NewLine;
+            var OrderId = DateTime.Now.ToString("yyMMddHHmmss");
+            String time_OrderId = "Order ID: " + OrderId + " Time: " + DateTime.Now.ToString("hh:mm:ss");
             try
             {
                 for (int i = 0; i < dgvRowIndex - 1; i++)
@@ -286,17 +283,17 @@ namespace Assignment5
                       " size: " + dataGridView1.Rows[i].Cells[1].Value.ToString() +
                       " Quantiy: " + dataGridView1.Rows[i].Cells[2].Value.ToString() +
                       " Individual Price: " + dataGridView1.Rows[i].Cells[3].Value.ToString() +
-                      " Collective price: " + dataGridView1.Rows[i].Cells[4].Value.ToString() + "\n").ToString();
+                      " Collective price: " + dataGridView1.Rows[i].Cells[4].Value.ToString()).ToString();
 
                     totalCommodities += Convert.ToInt32(dataGridView1.Rows[i].Cells[2].Value.ToString());
 
                 }
 
-                Console.WriteLine(" reciept " + receipt);
+              //  Console.WriteLine(" reciept " + receipt);
 
-                totalReceipt += (date_time_OrderId + receipt + "\n");
-                Console.WriteLine("Total Reciept " + totalReceipt);
-                MessageBox.Show("Order sucessfull \n" + date_time_OrderId + receipt);
+                totalReceipt += (Environment.NewLine+ time_OrderId + receipt +Environment.NewLine);
+               // Console.WriteLine("Total Reciept " + totalReceipt);
+                MessageBox.Show("Order sucessfull"+Environment.NewLine + time_OrderId + receipt);
 
             }
             catch { }
@@ -369,7 +366,7 @@ namespace Assignment5
                         //write the closing stock to file so it can load the for the next day
                         StreamWriter FS = new StreamWriter(@"Closing Stock.txt");
 
-                        for (int i = 0; i < size.Length; i++)
+                        for (int i = 0; i < sizes.Length; i++)
                         {
                             for (int j = 0; j < commodities.Length; j++)
                             {
@@ -385,14 +382,14 @@ namespace Assignment5
                         // summary Order 
                         //   var myUniqueFileName = string.Format(@"{0}.txt",DateTime.Now.Ticks);
 
-                        var fileName = "orders.txt";
+                        var fileName = "Orders.txt";
                         StreamWriter TR;
                         //  TR = File.CreateText(fileName);
                         TR = File.AppendText(fileName);
                         TR.WriteLine("*******************Orders for the date " + DateTime.Now.ToString("dd-MM-yyyy") +
                           "******************" + Environment.NewLine +
-                          "*******************************************************************" + Environment.NewLine +
-                          totalReceipt + Environment.NewLine);
+                          "*******************************************************************#" + Environment.NewLine +
+                          totalReceipt+";");
 
                         //Console.WriteLine("Total Reciept " + totalReceipt);
 
@@ -429,6 +426,7 @@ namespace Assignment5
 
         }
 
+        // summar of daily sales
         private void summary_Button_Click(object sender, EventArgs e)
         {
             summaryTabPage.Visible = true;
@@ -443,6 +441,46 @@ namespace Assignment5
             }
             catch { }
 
+        }
+
+
+        private void ManagementReport_Click(object sender, EventArgs e)
+        {
+
+            //if (totalReceipt != null)
+            //{
+            //    //foreach (int stock in closingStock)
+            //    //{
+
+            //        foreach(string size in sizes)
+            //        {
+            //            foreach(string commodity in commodities)
+            //            {
+            //              //  Console.WriteLine("Trading Day: " + DateTime.Now.ToString("dd-MM-yyyy")+"\t");
+            //             //   Console.WriteLine("Generated Time: " + DateTime.Now.ToString("HH:mm:ss") + "\n");
+            //             //   String.Format("{0:10}", size);
+
+            //              //  Console.WriteLine(stock);
+            //            }
+            //        }
+            //    //}
+            //}
+            //else
+            //{
+            //  //  string input = File.ReadAllText(@"Closing Stock.txt");
+            //    //Console.WriteLine(input);
+            //    Console.Write("Trading Day: " + DateTime.Now.ToString("dd-MM-yyyy") + "\t");
+            //    Console.WriteLine("Generated Time: " + DateTime.Now.ToString("HH:mm:ss"));
+
+            //    foreach (string size in sizes)
+            //    {
+                   
+            //            Console.Write(size);
+
+            //            //  Console.WriteLine(stock);
+                    
+            //    }
+            //}
         }
 
         //clears and ready for the new Order
@@ -460,13 +498,62 @@ namespace Assignment5
             panel2.Visible = false;
         }
 
-        private void employeeButton_Click(object sender, EventArgs e)
+        private void searchButton_Click(object sender, EventArgs e)
         {
-            summaryTabPage.Visible = false;
-            mealTabPage.Visible = true;
+            string search_text = searchTextBox.Text.Trim();
+
+            if (search_text!="")
+            {
+                if (totalReceipt != null)
+                {
+                    string[] receipts = totalReceipt.Split(';');
+
+                    foreach (string receipt in receipts)
+                    {
+                        if (receipt.Contains(search_text))
+                        {
+                            searchResultLabel.Text = receipt;
+
+                           // Console.WriteLine("splitted " + receipt);
+                            return;
+                        }
+                        
+                    }
+
+                }
+
+                String input = File.ReadAllText(@"Orders.txt");
+
+                string[] orders = input.Split(';');
+
+                foreach (string order in orders)
+                {
+
+                    if (order.Contains(search_text))
+                    {
+                        string order_substring = order.Substring(order.IndexOf("#")).Trim('#');
+                        searchResultLabel.Text = order_substring.Trim();
+                        //Console.WriteLine(order_substring);
+                        return;
+                    }
+         
+                }
+                searchResultLabel.Text = "Cannot find anything";
+
+            }
+            else
+            {
+                searchResultLabel.Text = "Cannot find anything";
+            }
+
+
         }
 
-        //Empty methods
+   //Empty methods
+        private void searchTextBox_TextChanged(object sender, EventArgs e)
+       {
+            
+        }
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
 
@@ -522,6 +609,106 @@ namespace Assignment5
         }
 
         private void priceTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void searchResultLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripContainer1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void averageLable_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void totalNoTransLable_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void totalSaleValueLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void totalPriceLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CollectivePriceLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void collectivePriceTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void HeadSearhLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SearchLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolTip1_Popup(object sender, PopupEventArgs e)
+        {
+
+        }
+
+        private void BottomToolStripPanel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RightToolStripPanel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LeftToolStripPanel_Click(object sender, EventArgs e)
         {
 
         }

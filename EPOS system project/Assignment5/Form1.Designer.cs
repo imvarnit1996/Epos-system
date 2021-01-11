@@ -37,6 +37,7 @@ namespace Assignment5
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.ragle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.summaryTabPage = new System.Windows.Forms.TabPage();
+            this.ManagementReport = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.summary_Button = new System.Windows.Forms.Button();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
@@ -78,15 +79,17 @@ namespace Assignment5
             this.label3 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.searchTabPage = new System.Windows.Forms.TabPage();
+            this.searchResultLabel = new System.Windows.Forms.Label();
+            this.searchButton = new System.Windows.Forms.Button();
+            this.searchTextBox = new System.Windows.Forms.TextBox();
+            this.HeadSearhLabel = new System.Windows.Forms.Label();
+            this.SearchLabel = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.BottomToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.TopToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.RightToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.LeftToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.ContentPanel = new System.Windows.Forms.ToolStripContentPanel();
-            this.SearchLabel = new System.Windows.Forms.Label();
-            this.HeadSearhLabel = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.summaryTabPage.SuspendLayout();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
@@ -135,6 +138,7 @@ namespace Assignment5
             // summaryTabPage
             // 
             this.summaryTabPage.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("summaryTabPage.BackgroundImage")));
+            this.summaryTabPage.Controls.Add(this.ManagementReport);
             this.summaryTabPage.Controls.Add(this.label9);
             this.summaryTabPage.Controls.Add(this.summary_Button);
             this.summaryTabPage.Controls.Add(this.toolStripContainer1);
@@ -146,6 +150,16 @@ namespace Assignment5
             this.summaryTabPage.Text = "Summary";
             this.summaryTabPage.UseVisualStyleBackColor = true;
             this.summaryTabPage.Click += new System.EventHandler(this.summaryTabPage_Click);
+            // 
+            // ManagementReport
+            // 
+            this.ManagementReport.Location = new System.Drawing.Point(527, 32);
+            this.ManagementReport.Name = "ManagementReport";
+            this.ManagementReport.Size = new System.Drawing.Size(136, 23);
+            this.ManagementReport.TabIndex = 21;
+            this.ManagementReport.Text = "Management Report";
+            this.ManagementReport.UseVisualStyleBackColor = true;
+            this.ManagementReport.Click += new System.EventHandler(this.ManagementReport_Click);
             // 
             // label9
             // 
@@ -195,6 +209,7 @@ namespace Assignment5
             // 
             this.toolStripContainer1.TopToolStripPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.toolStripContainer1.TopToolStripPanel.Click += new System.EventHandler(this.toolStripContainer1_TopToolStripPanel_Click);
+            this.toolStripContainer1.Click += new System.EventHandler(this.toolStripContainer1_Click);
             // 
             // averageLable
             // 
@@ -203,6 +218,7 @@ namespace Assignment5
             this.averageLable.Name = "averageLable";
             this.averageLable.Size = new System.Drawing.Size(122, 24);
             this.averageLable.TabIndex = 7;
+            this.averageLable.Click += new System.EventHandler(this.averageLable_Click);
             // 
             // totalNoTransLable
             // 
@@ -212,6 +228,7 @@ namespace Assignment5
             this.totalNoTransLable.Name = "totalNoTransLable";
             this.totalNoTransLable.Size = new System.Drawing.Size(122, 27);
             this.totalNoTransLable.TabIndex = 6;
+            this.totalNoTransLable.Click += new System.EventHandler(this.totalNoTransLable_Click);
             // 
             // totalSaleValueLabel
             // 
@@ -220,6 +237,7 @@ namespace Assignment5
             this.totalSaleValueLabel.Name = "totalSaleValueLabel";
             this.totalSaleValueLabel.Size = new System.Drawing.Size(122, 28);
             this.totalSaleValueLabel.TabIndex = 5;
+            this.totalSaleValueLabel.Click += new System.EventHandler(this.totalSaleValueLabel_Click);
             // 
             // totalCommoditiesLabel
             // 
@@ -240,6 +258,7 @@ namespace Assignment5
             this.label8.Size = new System.Drawing.Size(110, 17);
             this.label8.TabIndex = 3;
             this.label8.Text = " Average sales: ";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label7
             // 
@@ -250,6 +269,7 @@ namespace Assignment5
             this.label7.Size = new System.Drawing.Size(197, 17);
             this.label7.TabIndex = 2;
             this.label7.Text = "Total number of transactions :";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label6
             // 
@@ -260,6 +280,7 @@ namespace Assignment5
             this.label6.Size = new System.Drawing.Size(89, 17);
             this.label6.TabIndex = 1;
             this.label6.Text = "Total sales : ";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // label5
             // 
@@ -268,9 +289,9 @@ namespace Assignment5
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(47, 24);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(201, 17);
+            this.label5.Size = new System.Drawing.Size(196, 17);
             this.label5.TabIndex = 0;
-            this.label5.Text = "Number of commoditiess sold: ";
+            this.label5.Text = "Number of Commodities sold: ";
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // mealTabPage
@@ -298,6 +319,7 @@ namespace Assignment5
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(543, 100);
             this.panel2.TabIndex = 23;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // CancelOrder
             // 
@@ -353,6 +375,7 @@ namespace Assignment5
             this.totalPriceLabel.Size = new System.Drawing.Size(130, 25);
             this.totalPriceLabel.TabIndex = 20;
             this.totalPriceLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.totalPriceLabel.Click += new System.EventHandler(this.totalPriceLabel_Click);
             // 
             // panel1
             // 
@@ -387,6 +410,7 @@ namespace Assignment5
             this.CollectivePriceLabel.Size = new System.Drawing.Size(112, 17);
             this.CollectivePriceLabel.TabIndex = 20;
             this.CollectivePriceLabel.Text = "Collective Price :";
+            this.CollectivePriceLabel.Click += new System.EventHandler(this.CollectivePriceLabel_Click);
             // 
             // priceLabel
             // 
@@ -406,6 +430,7 @@ namespace Assignment5
             this.collectivePriceTextBox.ReadOnly = true;
             this.collectivePriceTextBox.Size = new System.Drawing.Size(100, 20);
             this.collectivePriceTextBox.TabIndex = 18;
+            this.collectivePriceTextBox.TextChanged += new System.EventHandler(this.collectivePriceTextBox_TextChanged);
             // 
             // priceTextBox
             // 
@@ -575,6 +600,7 @@ namespace Assignment5
             this.label2.Size = new System.Drawing.Size(40, 20);
             this.label2.TabIndex = 2;
             this.label2.Text = "Size";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // addButton
             // 
@@ -609,11 +635,14 @@ namespace Assignment5
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(737, 463);
             this.tabControl1.TabIndex = 1;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // searchTabPage
             // 
             this.searchTabPage.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("searchTabPage.BackgroundImage")));
-            this.searchTabPage.Controls.Add(this.textBox1);
+            this.searchTabPage.Controls.Add(this.searchResultLabel);
+            this.searchTabPage.Controls.Add(this.searchButton);
+            this.searchTabPage.Controls.Add(this.searchTextBox);
             this.searchTabPage.Controls.Add(this.HeadSearhLabel);
             this.searchTabPage.Controls.Add(this.SearchLabel);
             this.searchTabPage.Location = new System.Drawing.Point(4, 22);
@@ -625,6 +654,63 @@ namespace Assignment5
             this.searchTabPage.UseVisualStyleBackColor = true;
             this.searchTabPage.Click += new System.EventHandler(this.searchTabPage_Click);
             // 
+            // searchResultLabel
+            // 
+            this.searchResultLabel.AutoSize = true;
+            this.searchResultLabel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.searchResultLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchResultLabel.Location = new System.Drawing.Point(65, 271);
+            this.searchResultLabel.Name = "searchResultLabel";
+            this.searchResultLabel.Size = new System.Drawing.Size(63, 20);
+            this.searchResultLabel.TabIndex = 4;
+            this.searchResultLabel.Text = "Results";
+            this.searchResultLabel.Click += new System.EventHandler(this.searchResultLabel_Click);
+            // 
+            // searchButton
+            // 
+            this.searchButton.Location = new System.Drawing.Point(268, 202);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(75, 23);
+            this.searchButton.TabIndex = 3;
+            this.searchButton.Text = "Search";
+            this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
+            // 
+            // searchTextBox
+            // 
+            this.searchTextBox.Location = new System.Drawing.Point(351, 156);
+            this.searchTextBox.Name = "searchTextBox";
+            this.searchTextBox.Size = new System.Drawing.Size(100, 20);
+            this.searchTextBox.TabIndex = 2;
+            this.searchTextBox.TextChanged += new System.EventHandler(this.searchTextBox_TextChanged);
+            // 
+            // HeadSearhLabel
+            // 
+            this.HeadSearhLabel.AutoSize = true;
+            this.HeadSearhLabel.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.HeadSearhLabel.Font = new System.Drawing.Font("Segoe Print", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HeadSearhLabel.Location = new System.Drawing.Point(225, 70);
+            this.HeadSearhLabel.Name = "HeadSearhLabel";
+            this.HeadSearhLabel.Size = new System.Drawing.Size(167, 36);
+            this.HeadSearhLabel.TabIndex = 1;
+            this.HeadSearhLabel.Text = "Search Orders";
+            this.HeadSearhLabel.Click += new System.EventHandler(this.HeadSearhLabel_Click);
+            // 
+            // SearchLabel
+            // 
+            this.SearchLabel.AutoSize = true;
+            this.SearchLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SearchLabel.Location = new System.Drawing.Point(168, 156);
+            this.SearchLabel.Name = "SearchLabel";
+            this.SearchLabel.Size = new System.Drawing.Size(114, 20);
+            this.SearchLabel.TabIndex = 0;
+            this.SearchLabel.Text = "Enter Order Id:";
+            this.SearchLabel.Click += new System.EventHandler(this.SearchLabel_Click);
+            // 
+            // toolTip1
+            // 
+            this.toolTip1.Popup += new System.Windows.Forms.PopupEventHandler(this.toolTip1_Popup);
+            // 
             // BottomToolStripPanel
             // 
             this.BottomToolStripPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -633,6 +719,7 @@ namespace Assignment5
             this.BottomToolStripPanel.Orientation = System.Windows.Forms.Orientation.Horizontal;
             this.BottomToolStripPanel.RowMargin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.BottomToolStripPanel.Size = new System.Drawing.Size(614, 0);
+            this.BottomToolStripPanel.Click += new System.EventHandler(this.BottomToolStripPanel_Click);
             // 
             // TopToolStripPanel
             // 
@@ -653,6 +740,7 @@ namespace Assignment5
             this.RightToolStripPanel.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.RightToolStripPanel.RowMargin = new System.Windows.Forms.Padding(0, 3, 0, 0);
             this.RightToolStripPanel.Size = new System.Drawing.Size(0, 238);
+            this.RightToolStripPanel.Click += new System.EventHandler(this.RightToolStripPanel_Click);
             // 
             // LeftToolStripPanel
             // 
@@ -662,39 +750,12 @@ namespace Assignment5
             this.LeftToolStripPanel.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.LeftToolStripPanel.RowMargin = new System.Windows.Forms.Padding(0, 3, 0, 0);
             this.LeftToolStripPanel.Size = new System.Drawing.Size(0, 238);
+            this.LeftToolStripPanel.Click += new System.EventHandler(this.LeftToolStripPanel_Click);
             // 
             // ContentPanel
             // 
             this.ContentPanel.Size = new System.Drawing.Size(614, 238);
             this.ContentPanel.Load += new System.EventHandler(this.toolStripContainer1_ContentPanel_Load);
-            // 
-            // SearchLabel
-            // 
-            this.SearchLabel.AutoSize = true;
-            this.SearchLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchLabel.Location = new System.Drawing.Point(168, 156);
-            this.SearchLabel.Name = "SearchLabel";
-            this.SearchLabel.Size = new System.Drawing.Size(114, 20);
-            this.SearchLabel.TabIndex = 0;
-            this.SearchLabel.Text = "Enter Order Id:";
-            // 
-            // HeadSearhLabel
-            // 
-            this.HeadSearhLabel.AutoSize = true;
-            this.HeadSearhLabel.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.HeadSearhLabel.Font = new System.Drawing.Font("Segoe Print", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HeadSearhLabel.Location = new System.Drawing.Point(225, 70);
-            this.HeadSearhLabel.Name = "HeadSearhLabel";
-            this.HeadSearhLabel.Size = new System.Drawing.Size(167, 36);
-            this.HeadSearhLabel.TabIndex = 1;
-            this.HeadSearhLabel.Text = "Search Orders";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(351, 156);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 2;
             // 
             // Form1
             // 
@@ -784,9 +845,12 @@ namespace Assignment5
         private System.Windows.Forms.TextBox collectivePriceTextBox;
         private System.Windows.Forms.TextBox priceTextBox;
         private System.Windows.Forms.Label CollectivePriceLabel;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox searchTextBox;
         private System.Windows.Forms.Label HeadSearhLabel;
         private System.Windows.Forms.Label SearchLabel;
+        private System.Windows.Forms.Button ManagementReport;
+        private System.Windows.Forms.Button searchButton;
+        private System.Windows.Forms.Label searchResultLabel;
     }
 }
 
