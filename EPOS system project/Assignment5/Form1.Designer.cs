@@ -37,7 +37,6 @@ namespace Assignment5
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.ragle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.summaryTabPage = new System.Windows.Forms.TabPage();
-            this.ManagementReport = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.summary_Button = new System.Windows.Forms.Button();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
@@ -139,7 +138,6 @@ namespace Assignment5
             // summaryTabPage
             // 
             this.summaryTabPage.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("summaryTabPage.BackgroundImage")));
-            this.summaryTabPage.Controls.Add(this.ManagementReport);
             this.summaryTabPage.Controls.Add(this.label9);
             this.summaryTabPage.Controls.Add(this.summary_Button);
             this.summaryTabPage.Controls.Add(this.toolStripContainer1);
@@ -151,16 +149,6 @@ namespace Assignment5
             this.summaryTabPage.Text = "Summary";
             this.summaryTabPage.UseVisualStyleBackColor = true;
             this.summaryTabPage.Click += new System.EventHandler(this.summaryTabPage_Click);
-            // 
-            // ManagementReport
-            // 
-            this.ManagementReport.Location = new System.Drawing.Point(527, 32);
-            this.ManagementReport.Name = "ManagementReport";
-            this.ManagementReport.Size = new System.Drawing.Size(136, 23);
-            this.ManagementReport.TabIndex = 21;
-            this.ManagementReport.Text = "Management Report";
-            this.ManagementReport.UseVisualStyleBackColor = true;
-            this.ManagementReport.Click += new System.EventHandler(this.ManagementReport_Click);
             // 
             // label9
             // 
@@ -864,7 +852,6 @@ namespace Assignment5
         private System.Windows.Forms.TextBox searchTextBox;
         private System.Windows.Forms.Label HeadSearhLabel;
         private System.Windows.Forms.Label SearchLabel;
-        private System.Windows.Forms.Button ManagementReport;
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.Label searchResultLabel;
         private System.Windows.Forms.Label label10;
