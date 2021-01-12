@@ -113,7 +113,7 @@ namespace Assignment5
             this.clearButton.Text = "Clea&r";
             this.toolTip1.SetToolTip(this.clearButton, "click here to clear");
             this.clearButton.UseVisualStyleBackColor = true;
-            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
+            this.clearButton.Click += new System.EventHandler(this.ClearButton_Click);
             // 
             // exit_Button
             // 
@@ -124,7 +124,7 @@ namespace Assignment5
             this.exit_Button.Text = "E&ND";
             this.toolTip1.SetToolTip(this.exit_Button, "click here to end ");
             this.exit_Button.UseVisualStyleBackColor = true;
-            this.exit_Button.Click += new System.EventHandler(this.exit_Button_Click);
+            this.exit_Button.Click += new System.EventHandler(this.Exit_Button_Click);
             // 
             // errorProvider1
             // 
@@ -149,7 +149,7 @@ namespace Assignment5
             this.summaryTabPage.TabIndex = 2;
             this.summaryTabPage.Text = "Summary";
             this.summaryTabPage.UseVisualStyleBackColor = true;
-            this.summaryTabPage.Click += new System.EventHandler(this.summaryTabPage_Click);
+            this.summaryTabPage.Click += new System.EventHandler(this.SummaryTabPage_Click);
             // 
             // label9
             // 
@@ -161,7 +161,7 @@ namespace Assignment5
             this.label9.Size = new System.Drawing.Size(143, 35);
             this.label9.TabIndex = 20;
             this.label9.Text = "Daily Sales";
-            this.label9.Click += new System.EventHandler(this.label9_Click_1);
+            this.label9.Click += new System.EventHandler(this.Label9_Click_1);
             // 
             // summary_Button
             // 
@@ -172,7 +172,7 @@ namespace Assignment5
             this.summary_Button.Text = "&Summary";
             this.toolTip1.SetToolTip(this.summary_Button, "click here to get the summary");
             this.summary_Button.UseVisualStyleBackColor = true;
-            this.summary_Button.Click += new System.EventHandler(this.summary_Button_Click);
+            this.summary_Button.Click += new System.EventHandler(this.Summary_Button_Click);
             // 
             // toolStripContainer1
             // 
@@ -188,7 +188,7 @@ namespace Assignment5
             this.toolStripContainer1.ContentPanel.Controls.Add(this.label6);
             this.toolStripContainer1.ContentPanel.Controls.Add(this.label5);
             this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(614, 238);
-            this.toolStripContainer1.ContentPanel.Load += new System.EventHandler(this.toolStripContainer1_ContentPanel_Load);
+            this.toolStripContainer1.ContentPanel.Load += new System.EventHandler(this.ToolStripContainer1_ContentPanel_Load);
             this.toolStripContainer1.Location = new System.Drawing.Point(59, 117);
             this.toolStripContainer1.Name = "toolStripContainer1";
             this.toolStripContainer1.Size = new System.Drawing.Size(614, 263);
@@ -198,8 +198,8 @@ namespace Assignment5
             // toolStripContainer1.TopToolStripPanel
             // 
             this.toolStripContainer1.TopToolStripPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.toolStripContainer1.TopToolStripPanel.Click += new System.EventHandler(this.toolStripContainer1_TopToolStripPanel_Click);
-            this.toolStripContainer1.Click += new System.EventHandler(this.toolStripContainer1_Click);
+            this.toolStripContainer1.TopToolStripPanel.Click += new System.EventHandler(this.ToolStripContainer1_TopToolStripPanel_Click);
+            this.toolStripContainer1.Click += new System.EventHandler(this.ToolStripContainer1_Click);
             // 
             // averageLable
             // 
@@ -208,7 +208,7 @@ namespace Assignment5
             this.averageLable.Name = "averageLable";
             this.averageLable.Size = new System.Drawing.Size(122, 24);
             this.averageLable.TabIndex = 7;
-            this.averageLable.Click += new System.EventHandler(this.averageLable_Click);
+            this.averageLable.Click += new System.EventHandler(this.AverageLable_Click);
             // 
             // totalNoTransLable
             // 
@@ -218,7 +218,7 @@ namespace Assignment5
             this.totalNoTransLable.Name = "totalNoTransLable";
             this.totalNoTransLable.Size = new System.Drawing.Size(122, 27);
             this.totalNoTransLable.TabIndex = 6;
-            this.totalNoTransLable.Click += new System.EventHandler(this.totalNoTransLable_Click);
+            this.totalNoTransLable.Click += new System.EventHandler(this.TotalNoTransLable_Click);
             // 
             // totalSaleValueLabel
             // 
@@ -227,7 +227,7 @@ namespace Assignment5
             this.totalSaleValueLabel.Name = "totalSaleValueLabel";
             this.totalSaleValueLabel.Size = new System.Drawing.Size(122, 28);
             this.totalSaleValueLabel.TabIndex = 5;
-            this.totalSaleValueLabel.Click += new System.EventHandler(this.totalSaleValueLabel_Click);
+            this.totalSaleValueLabel.Click += new System.EventHandler(this.TotalSaleValueLabel_Click);
             // 
             // totalCommoditiesLabel
             // 
@@ -237,7 +237,7 @@ namespace Assignment5
             this.totalCommoditiesLabel.Name = "totalCommoditiesLabel";
             this.totalCommoditiesLabel.Size = new System.Drawing.Size(122, 28);
             this.totalCommoditiesLabel.TabIndex = 4;
-            this.totalCommoditiesLabel.Click += new System.EventHandler(this.totalCommoditiesLabel_Click);
+            this.totalCommoditiesLabel.Click += new System.EventHandler(this.TotalCommoditiesLabel_Click);
             // 
             // label8
             // 
@@ -248,7 +248,7 @@ namespace Assignment5
             this.label8.Size = new System.Drawing.Size(110, 17);
             this.label8.TabIndex = 3;
             this.label8.Text = " Average sales: ";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
+            this.label8.Click += new System.EventHandler(this.Label8_Click);
             // 
             // label7
             // 
@@ -259,7 +259,7 @@ namespace Assignment5
             this.label7.Size = new System.Drawing.Size(197, 17);
             this.label7.TabIndex = 2;
             this.label7.Text = "Total number of transactions :";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
+            this.label7.Click += new System.EventHandler(this.Label7_Click);
             // 
             // label6
             // 
@@ -270,7 +270,7 @@ namespace Assignment5
             this.label6.Size = new System.Drawing.Size(89, 17);
             this.label6.TabIndex = 1;
             this.label6.Text = "Total sales : ";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
+            this.label6.Click += new System.EventHandler(this.Label6_Click);
             // 
             // label5
             // 
@@ -282,7 +282,7 @@ namespace Assignment5
             this.label5.Size = new System.Drawing.Size(196, 17);
             this.label5.TabIndex = 0;
             this.label5.Text = "Number of Commodities sold: ";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
+            this.label5.Click += new System.EventHandler(this.Label5_Click);
             // 
             // Items
             // 
@@ -296,7 +296,7 @@ namespace Assignment5
             this.Items.TabIndex = 0;
             this.Items.Text = "Items";
             this.Items.UseVisualStyleBackColor = true;
-            this.Items.Click += new System.EventHandler(this.tabPage1_Click);
+            this.Items.Click += new System.EventHandler(this.TabPage1_Click);
             // 
             // panel2
             // 
@@ -309,7 +309,7 @@ namespace Assignment5
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(543, 100);
             this.panel2.TabIndex = 23;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel2_Paint);
             // 
             // CancelOrder
             // 
@@ -321,7 +321,7 @@ namespace Assignment5
             this.CancelOrder.Text = "Cancel Order";
             this.toolTip1.SetToolTip(this.CancelOrder, "Click here to cancel order");
             this.CancelOrder.UseVisualStyleBackColor = true;
-            this.CancelOrder.Click += new System.EventHandler(this.cancelButton_Click_1);
+            this.CancelOrder.Click += new System.EventHandler(this.CancelButton_Click_1);
             // 
             // label4
             // 
@@ -331,7 +331,7 @@ namespace Assignment5
             this.label4.Size = new System.Drawing.Size(67, 13);
             this.label4.TabIndex = 19;
             this.label4.Text = "Total Price : ";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
+            this.label4.Click += new System.EventHandler(this.Label4_Click);
             // 
             // completeOrderButton
             // 
@@ -343,7 +343,7 @@ namespace Assignment5
             this.completeOrderButton.Text = "&Complete Order";
             this.toolTip1.SetToolTip(this.completeOrderButton, "click here for confirm");
             this.completeOrderButton.UseVisualStyleBackColor = true;
-            this.completeOrderButton.Click += new System.EventHandler(this.completeOrderButton_Click);
+            this.completeOrderButton.Click += new System.EventHandler(this.CompleteOrderButton_Click);
             // 
             // newButton
             // 
@@ -355,7 +355,7 @@ namespace Assignment5
             this.newButton.Text = "&New Order";
             this.toolTip1.SetToolTip(this.newButton, "Click here to new order");
             this.newButton.UseVisualStyleBackColor = true;
-            this.newButton.Click += new System.EventHandler(this.newButton_Click);
+            this.newButton.Click += new System.EventHandler(this.NewButton_Click);
             // 
             // totalPriceLabel
             // 
@@ -365,7 +365,7 @@ namespace Assignment5
             this.totalPriceLabel.Size = new System.Drawing.Size(130, 25);
             this.totalPriceLabel.TabIndex = 20;
             this.totalPriceLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.totalPriceLabel.Click += new System.EventHandler(this.totalPriceLabel_Click);
+            this.totalPriceLabel.Click += new System.EventHandler(this.TotalPriceLabel_Click);
             // 
             // panel1
             // 
@@ -389,7 +389,7 @@ namespace Assignment5
             this.panel1.Size = new System.Drawing.Size(717, 307);
             this.panel1.TabIndex = 22;
             this.toolTip1.SetToolTip(this.panel1, "click here get the total");
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.Panel1_Paint);
             // 
             // CollectivePriceLabel
             // 
@@ -411,7 +411,7 @@ namespace Assignment5
             this.priceLabel.Size = new System.Drawing.Size(101, 17);
             this.priceLabel.TabIndex = 19;
             this.priceLabel.Text = "Price for one : ";
-            this.priceLabel.Click += new System.EventHandler(this.label10_Click);
+            this.priceLabel.Click += new System.EventHandler(this.Label10_Click);
             // 
             // collectivePriceTextBox
             // 
@@ -420,7 +420,7 @@ namespace Assignment5
             this.collectivePriceTextBox.ReadOnly = true;
             this.collectivePriceTextBox.Size = new System.Drawing.Size(100, 20);
             this.collectivePriceTextBox.TabIndex = 18;
-            this.collectivePriceTextBox.TextChanged += new System.EventHandler(this.collectivePriceTextBox_TextChanged);
+            this.collectivePriceTextBox.TextChanged += new System.EventHandler(this.CollectivePriceTextBox_TextChanged);
             // 
             // priceTextBox
             // 
@@ -429,7 +429,7 @@ namespace Assignment5
             this.priceTextBox.ReadOnly = true;
             this.priceTextBox.Size = new System.Drawing.Size(100, 20);
             this.priceTextBox.TabIndex = 17;
-            this.priceTextBox.TextChanged += new System.EventHandler(this.priceTextBox_TextChanged);
+            this.priceTextBox.TextChanged += new System.EventHandler(this.PriceTextBox_TextChanged);
             // 
             // label1
             // 
@@ -440,7 +440,7 @@ namespace Assignment5
             this.label1.Size = new System.Drawing.Size(72, 20);
             this.label1.TabIndex = 16;
             this.label1.Text = "Available";
-            this.label1.Click += new System.EventHandler(this.label1_Click_1);
+            this.label1.Click += new System.EventHandler(this.Label1_Click_1);
             // 
             // deleteItem
             // 
@@ -452,7 +452,7 @@ namespace Assignment5
             this.deleteItem.Text = "DELETE";
             this.toolTip1.SetToolTip(this.deleteItem, "click here to delete the item in the row");
             this.deleteItem.UseVisualStyleBackColor = true;
-            this.deleteItem.Click += new System.EventHandler(this.deleteItem_Click);
+            this.deleteItem.Click += new System.EventHandler(this.DeleteItem_Click);
             // 
             // quantityNumericUpDown
             // 
@@ -475,7 +475,7 @@ namespace Assignment5
             this.proceedButton.Text = "Proceed with the selected items";
             this.toolTip1.SetToolTip(this.proceedButton, "click here to get the total");
             this.proceedButton.UseVisualStyleBackColor = true;
-            this.proceedButton.Click += new System.EventHandler(this.proceedButton_Click);
+            this.proceedButton.Click += new System.EventHandler(this.ProceedButton_Click);
             // 
             // sizeListBox
             // 
@@ -531,7 +531,7 @@ namespace Assignment5
             this.CommoditiesLabel.Size = new System.Drawing.Size(57, 20);
             this.CommoditiesLabel.TabIndex = 0;
             this.CommoditiesLabel.Text = "Goods";
-            this.CommoditiesLabel.Click += new System.EventHandler(this.label1_Click);
+            this.CommoditiesLabel.Click += new System.EventHandler(this.Label1_Click);
             // 
             // dataGridView1
             // 
@@ -549,7 +549,7 @@ namespace Assignment5
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(517, 133);
             this.dataGridView1.TabIndex = 11;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellContentClick);
             // 
             // Column1
             // 
@@ -590,7 +590,7 @@ namespace Assignment5
             this.label2.Size = new System.Drawing.Size(40, 20);
             this.label2.TabIndex = 2;
             this.label2.Text = "Size";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            this.label2.Click += new System.EventHandler(this.Label2_Click);
             // 
             // addButton
             // 
@@ -602,7 +602,7 @@ namespace Assignment5
             this.addButton.Text = " &ADD";
             this.toolTip1.SetToolTip(this.addButton, "Click here to add the items");
             this.addButton.UseVisualStyleBackColor = true;
-            this.addButton.Click += new System.EventHandler(this.addButton_Click);
+            this.addButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // label3
             // 
@@ -613,7 +613,7 @@ namespace Assignment5
             this.label3.Size = new System.Drawing.Size(61, 17);
             this.label3.TabIndex = 9;
             this.label3.Text = "Quantity";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.label3.Click += new System.EventHandler(this.Label3_Click);
             // 
             // tabControl1
             // 
@@ -625,7 +625,7 @@ namespace Assignment5
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(737, 463);
             this.tabControl1.TabIndex = 1;
-            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.TabControl1_SelectedIndexChanged);
             // 
             // searchTabPage
             // 
@@ -642,7 +642,7 @@ namespace Assignment5
             this.searchTabPage.TabIndex = 3;
             this.searchTabPage.Text = "Search";
             this.searchTabPage.UseVisualStyleBackColor = true;
-            this.searchTabPage.Click += new System.EventHandler(this.searchTabPage_Click);
+            this.searchTabPage.Click += new System.EventHandler(this.SearchTabPage_Click);
             // 
             // searchResultLabel
             // 
@@ -654,7 +654,7 @@ namespace Assignment5
             this.searchResultLabel.Size = new System.Drawing.Size(63, 20);
             this.searchResultLabel.TabIndex = 4;
             this.searchResultLabel.Text = "Results";
-            this.searchResultLabel.Click += new System.EventHandler(this.searchResultLabel_Click);
+            this.searchResultLabel.Click += new System.EventHandler(this.SearchResultLabel_Click);
             // 
             // searchButton
             // 
@@ -664,7 +664,7 @@ namespace Assignment5
             this.searchButton.TabIndex = 3;
             this.searchButton.Text = "Search";
             this.searchButton.UseVisualStyleBackColor = true;
-            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
+            this.searchButton.Click += new System.EventHandler(this.SearchButton_Click);
             // 
             // searchTextBox
             // 
@@ -673,7 +673,7 @@ namespace Assignment5
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.Size = new System.Drawing.Size(100, 20);
             this.searchTextBox.TabIndex = 2;
-            this.searchTextBox.TextChanged += new System.EventHandler(this.searchTextBox_TextChanged);
+            this.searchTextBox.TextChanged += new System.EventHandler(this.SearchTextBox_TextChanged);
             // 
             // HeadSearhLabel
             // 
@@ -700,7 +700,7 @@ namespace Assignment5
             // 
             // toolTip1
             // 
-            this.toolTip1.Popup += new System.Windows.Forms.PopupEventHandler(this.toolTip1_Popup);
+            this.toolTip1.Popup += new System.Windows.Forms.PopupEventHandler(this.ToolTip1_Popup);
             // 
             // BottomToolStripPanel
             // 
@@ -721,7 +721,7 @@ namespace Assignment5
             this.TopToolStripPanel.Padding = new System.Windows.Forms.Padding(0, 0, 25, 25);
             this.TopToolStripPanel.RowMargin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.TopToolStripPanel.Size = new System.Drawing.Size(614, 25);
-            this.TopToolStripPanel.Click += new System.EventHandler(this.toolStripContainer1_TopToolStripPanel_Click);
+            this.TopToolStripPanel.Click += new System.EventHandler(this.ToolStripContainer1_TopToolStripPanel_Click);
             // 
             // RightToolStripPanel
             // 
@@ -746,7 +746,7 @@ namespace Assignment5
             // ContentPanel
             // 
             this.ContentPanel.Size = new System.Drawing.Size(614, 238);
-            this.ContentPanel.Load += new System.EventHandler(this.toolStripContainer1_ContentPanel_Load);
+            this.ContentPanel.Load += new System.EventHandler(this.ToolStripContainer1_ContentPanel_Load);
             // 
             // label10
             // 
@@ -758,7 +758,7 @@ namespace Assignment5
             this.label10.Size = new System.Drawing.Size(377, 17);
             this.label10.TabIndex = 4;
             this.label10.Text = "only close by END button otherwise stock wont be updated";
-            this.label10.Click += new System.EventHandler(this.label10_Click_1);
+            this.label10.Click += new System.EventHandler(this.Label10_Click_1);
             // 
             // Form1
             // 

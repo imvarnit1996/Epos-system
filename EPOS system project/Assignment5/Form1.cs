@@ -50,13 +50,13 @@ namespace Assignment5
                                  {5,  13, 11, 12, 23, 12, 4,  7,  10, 8,  6,  4,  21, 4,  6,  8},
                                  {6,  2,  0,  2,  4,  6,  3,  4,  5,  6,  7,  8,  9,  6,  23, 8}};
 
-        int commoditiesIndex, sizeIndex, quantity, totalCommodities, totalNoTrans;
-        decimal totalPrice, collectivePrice, totalSaleValue;
-        string receipt, time_OrderId;
+        int commodities_index, size_index, quantity, total_commodities, total_number_of_transactions;
+        decimal total_price, collective_price, total_sales_value;
+        string receipt, time_date_orderId;
         bool count = true;
 
-        int[,] tempStock = new int[5, 16];
-        int[,] closingStock = new int[5, 16];
+        int[,] temp_stock = new int[5, 16];
+        int[,] closing_stock = new int[5, 16];
 
 
         public Form1()
@@ -104,20 +104,18 @@ namespace Assignment5
             proceedButton.Enabled = false;
         }
 
-        private void addButton_Click(object sender, EventArgs e)
+        private void AddButton_Click(object sender, EventArgs e)
         {
-            commoditiesIndex = commoditiesListBox.SelectedIndex;
-            sizeIndex = sizeListBox.SelectedIndex;
+            commodities_index = commoditiesListBox.SelectedIndex;
+            size_index = sizeListBox.SelectedIndex;
 
-            if (commoditiesIndex == -1)
+            if (commodities_index == -1)
             {
                 MessageBox.Show("please select a commodity");
-
             }
-            else if (sizeIndex == -1)
+            else if (size_index == -1)
             {
                 MessageBox.Show("please select a size");
-
             }
             else
             {
@@ -128,15 +126,15 @@ namespace Assignment5
                         if (count)
                         {
                             // Clone the value only the first time 
-                            tempStock = stock.Clone() as int[,];
+                            temp_stock = stock.Clone() as int[,];
                         }
 
-                        if (quantity <= tempStock[sizeIndex, commoditiesIndex])
+                        if (quantity <= temp_stock[size_index, commodities_index])
                         {
 
-                            collectivePrice = (price[sizeIndex, commoditiesIndex] * quantity);
-                            dataGridView1.Rows.Add(commodities[commoditiesIndex], sizes[sizeIndex], quantityNumericUpDown.Text, price[sizeIndex, commoditiesIndex], collectivePrice);
-                            tempStock[sizeIndex, commoditiesIndex] -= quantity;
+                            collective_price = (price[size_index, commodities_index] * quantity);
+                            dataGridView1.Rows.Add(commodities[commodities_index], sizes[size_index], quantityNumericUpDown.Text, price[size_index, commodities_index], collective_price);
+                            temp_stock[size_index, commodities_index] -= quantity;
 
                             count = false; // clone is stopped by the flag
 
@@ -145,9 +143,9 @@ namespace Assignment5
                         }
                         else
                         {
-                            MessageBox.Show("There is only " + tempStock[sizeIndex, commoditiesIndex] + " available");
+                            MessageBox.Show("There is only " + temp_stock[size_index, commodities_index] + " available");
                             quantityNumericUpDown.Focus();
-                            quantityNumericUpDown.Text = tempStock[sizeIndex, commoditiesIndex].ToString();
+                            quantityNumericUpDown.Text = temp_stock[size_index, commodities_index].ToString();
                         }
                     }
                     catch { }
@@ -160,48 +158,46 @@ namespace Assignment5
             }
         }
 
-        public void priceChangeDetection(string sender)
+        public void PriceChangeDetection(string sender)
         {
 
-            commoditiesIndex = commoditiesListBox.SelectedIndex;
-            sizeIndex = sizeListBox.SelectedIndex;
+            commodities_index = commoditiesListBox.SelectedIndex;
+            size_index = sizeListBox.SelectedIndex;
 
-            if (commoditiesIndex >= 0 && sizeIndex >= 0)
+            if (commodities_index >= 0 && size_index >= 0)
             {
-
-                priceTextBox.Text = price[sizeIndex, commoditiesIndex].ToString();
-                collectivePriceTextBox.Text = ((price[sizeIndex, commoditiesIndex]) * quantityNumericUpDown.Value).ToString();
-
+                priceTextBox.Text = price[size_index, commodities_index].ToString();
+                collectivePriceTextBox.Text = ((price[size_index, commodities_index]) * quantityNumericUpDown.Value).ToString();
             }
         }
 
         private void commoditiesListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             quantityNumericUpDown.Text = "0";
-            priceChangeDetection((sender as ListBox).Name);
+            PriceChangeDetection((sender as ListBox).Name);
         }
 
         private void sizeListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             quantityNumericUpDown.Text = "0";
-            priceChangeDetection((sender as ListBox).Name);
+            PriceChangeDetection((sender as ListBox).Name);
         }
         private void quantityNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
 
-            priceChangeDetection((sender as NumericUpDown).Name);
+            PriceChangeDetection((sender as NumericUpDown).Name);
         }
 
-        private void proceedButton_Click(object sender, EventArgs e)
+        private void ProceedButton_Click(object sender, EventArgs e)
         {
             try
             {
                 //add the all the collective values
                 for (int i = 0; i < dataGridView1.RowCount - 1; i++)
                 {
-                    totalPrice += Convert.ToDecimal(dataGridView1.Rows[i].Cells[4].Value.ToString());
+                    total_price += Convert.ToDecimal(dataGridView1.Rows[i].Cells[4].Value.ToString());
                 }
-                totalPriceLabel.Text = totalPrice.ToString();
+                totalPriceLabel.Text = total_price.ToString();
             }
             catch { }
             panel1.Visible = false;
@@ -214,19 +210,19 @@ namespace Assignment5
             CancelOrder.Enabled = true;
 
         }
-        private void deleteItem_Click(object sender, EventArgs e)
+        private void DeleteItem_Click(object sender, EventArgs e)
         {
             try
             {
                 // delete the row and add the quantity back to the Tempstock
-                var rowindex = dataGridView1.CurrentCell.RowIndex;
+                var row_index = dataGridView1.CurrentCell.RowIndex;
 
-                if (dataGridView1.Rows.Count > 1 && dataGridView1.Rows[rowindex].Cells[0].Value != null)
+                if (dataGridView1.Rows.Count > 1 && dataGridView1.Rows[row_index].Cells[0].Value != null)
                 {
-                    tempStock[sizeIndex, commoditiesIndex] += Convert.ToInt32(dataGridView1.Rows[rowindex].Cells[2].Value.ToString());
-                    dataGridView1.Rows.RemoveAt(rowindex);
+                    temp_stock[size_index, commodities_index] += Convert.ToInt32(dataGridView1.Rows[row_index].Cells[2].Value.ToString());
+                    dataGridView1.Rows.RemoveAt(row_index);
 
-                    if (rowindex == 0)
+                    if (row_index == 0)
                     {
                         collectivePriceTextBox.Text = "0";
                         priceTextBox.Text = "0";
@@ -247,41 +243,40 @@ namespace Assignment5
         }
 
         // complete the traction and clone the tempstock to the closing stock
-        private void completeOrderButton_Click(object sender, EventArgs e)
+        private void CompleteOrderButton_Click(object sender, EventArgs e)
         {
 
-            int dgvRowIndex = dataGridView1.RowCount;
-            time_OrderId = "Order ID: " + DateTime.Now.ToString("yyMMddHHmmss") 
+            time_date_orderId = "Order ID: " + DateTime.Now.ToString("yyMMddHHmmss") 
                          + " Date: " + DateTime.Now.ToString("dd-MM-yyyy") 
                          + " Time: " + DateTime.Now.ToString("hh:mm:ss");
             try
             {
-                for (int i = 0; i < dgvRowIndex - 1; i++)
+                for (int i = 0; i < dataGridView1.RowCount - 1; i++)
                 {
                     receipt += (Environment.NewLine + "Item: " + dataGridView1.Rows[i].Cells[0].Value.ToString() + " size: " + dataGridView1.Rows[i].Cells[1].Value.ToString() + " Quantiy: " + dataGridView1.Rows[i].Cells[2].Value.ToString() + " Individual Price: " + dataGridView1.Rows[i].Cells[3].Value.ToString() + " Collective price: " + dataGridView1.Rows[i].Cells[4].Value.ToString()).ToString();
-                    totalCommodities += Convert.ToInt32(dataGridView1.Rows[i].Cells[2].Value.ToString());
+                    total_commodities += Convert.ToInt32(dataGridView1.Rows[i].Cells[2].Value.ToString());
 
                 }
 
-                MessageBox.Show("Order sucessfull" + Environment.NewLine + time_OrderId + receipt);
+                MessageBox.Show("Order sucessfull" + Environment.NewLine + time_date_orderId + receipt);
 
             }
             catch { }
 
-            totalNoTrans += 1; //for summary
+            total_number_of_transactions += 1; //for summary
+            total_sales_value += total_price;
             completeOrderButton.Enabled = false;
-            totalSaleValue += totalPrice;
             newButton.Enabled = true;
             CancelOrder.Enabled = false;
             clearButton.Enabled = false;
             collectivePriceTextBox.Text = "";
             priceTextBox.Text = "";
-            closingStock = tempStock.Clone() as int[,]; // clone for the live stock
+            closing_stock = temp_stock.Clone() as int[,]; // clone for the live stock
 
             var fileName = @"Orders.txt";
             StreamWriter TR;
             TR = File.AppendText(fileName);
-            TR.WriteLine(Environment.NewLine + time_OrderId + receipt + ";");
+            TR.WriteLine(Environment.NewLine + time_date_orderId + receipt + ";");
             TR.Flush();
             TR.Close();
 
@@ -306,27 +301,28 @@ namespace Assignment5
             proceedButton.Enabled = false;
             clearButton.Enabled = true;
             panel1.Visible = true;
-            totalPrice = 0;
+            total_price = 0;
             panel2.Visible = false;
         }
 
-        // For new Order
-        private void newButton_Click(object sender, EventArgs e)
+        // For placing the new Order
+        private void NewButton_Click(object sender, EventArgs e)
         {
             ClearFields();
         }
 
-        private void cancelButton_Click_1(object sender, EventArgs e)
+        //Cancelling the correntorder
+        private void CancelButton_Click_1(object sender, EventArgs e)
         {
             ClearFields();
         }
 
-        private void exit_Button_Click(object sender, EventArgs e)
+        //exit the application and updating stock in ClosingStock.txt file
+        private void Exit_Button_Click(object sender, EventArgs e)
         {
-            if (receipt == null || receipt == "")
+            if (receipt == null)
             {
                 this.Close();
-
             }
             else
             {
@@ -342,8 +338,8 @@ namespace Assignment5
                         {
                             for (int j = 0; j < commodities.Length; j++)
                             {
-                                if (j != 15) FS.Write(closingStock[i, j] + ",");
-                                if (j == 15) FS.Write(closingStock[i, j]);
+                                if (j != 15) FS.Write(closing_stock[i, j] + ",");
+                                if (j == 15) FS.Write(closing_stock[i, j]);
                             }
                             FS.WriteLine();
                         }
@@ -363,23 +359,23 @@ namespace Assignment5
         }
 
         // summar of daily sales
-        private void summary_Button_Click(object sender, EventArgs e)
+        private void Summary_Button_Click(object sender, EventArgs e)
         {
             summaryTabPage.Visible = true;
             try
             {
-                totalCommoditiesLabel.Text = totalCommodities.ToString();
-                totalSaleValueLabel.Text = totalSaleValue.ToString();
-                totalNoTransLable.Text = totalNoTrans.ToString();
-                decimal average = (totalSaleValue / totalNoTrans);
+                totalCommoditiesLabel.Text = total_commodities.ToString();
+                totalSaleValueLabel.Text = total_sales_value.ToString();
+                totalNoTransLable.Text = total_number_of_transactions.ToString();
+                decimal average = (total_sales_value / total_number_of_transactions);
                 averageLable.Text = average.ToString();
             }
             catch { }
 
         }
 
-        //clears and ready for the new Order
-        private void clearButton_Click(object sender, EventArgs e)
+        //clears the filed for new cart elemets
+        private void ClearButton_Click(object sender, EventArgs e)
         {
             commoditiesListBox.Text = "";
             sizeListBox.Text = "";
@@ -395,7 +391,7 @@ namespace Assignment5
             priceTextBox.Text = "";
         }
 
-        private void searchButton_Click(object sender, EventArgs e)
+        private void SearchButton_Click(object sender, EventArgs e)
         {
             string search_text = searchTextBox.Text.Trim();
 
@@ -422,115 +418,115 @@ namespace Assignment5
         }
 
         //Empty methods
-        private void searchTextBox_TextChanged(object sender, EventArgs e)
+        private void SearchTextBox_TextChanged(object sender, EventArgs e)
         {
 
         }
-        private void toolStripButton1_Click(object sender, EventArgs e)
+        private void ToolStripButton1_Click(object sender, EventArgs e)
         {
 
         }
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void Label4_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void Panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
 
-        private void label9_Click(object sender, EventArgs e)
+        private void DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
 
-        private void tabPage1_Click(object sender, EventArgs e)
+        private void Label9_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void totalCommoditiesLabel_Click(object sender, EventArgs e)
+        private void TabPage1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label1_Click_1(object sender, EventArgs e)
+        private void TotalCommoditiesLabel_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label5_Click(object sender, EventArgs e)
+        private void Label1_Click_1(object sender, EventArgs e)
         {
 
         }
 
-        private void label9_Click_1(object sender, EventArgs e)
+        private void Label5_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label10_Click(object sender, EventArgs e)
+        private void Label9_Click_1(object sender, EventArgs e)
         {
 
         }
 
-        private void priceTextBox_TextChanged(object sender, EventArgs e)
+        private void Label10_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void searchResultLabel_Click(object sender, EventArgs e)
+        private void PriceTextBox_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void toolStripContainer1_Click(object sender, EventArgs e)
+        private void SearchResultLabel_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void averageLable_Click(object sender, EventArgs e)
+        private void ToolStripContainer1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void totalNoTransLable_Click(object sender, EventArgs e)
+        private void AverageLable_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void totalSaleValueLabel_Click(object sender, EventArgs e)
+        private void TotalNoTransLable_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label8_Click(object sender, EventArgs e)
+        private void TotalSaleValueLabel_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label7_Click(object sender, EventArgs e)
+        private void Label8_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label6_Click(object sender, EventArgs e)
+        private void Label7_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
+        private void Label6_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void totalPriceLabel_Click(object sender, EventArgs e)
+        private void Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void TotalPriceLabel_Click(object sender, EventArgs e)
         {
 
         }
@@ -540,17 +536,17 @@ namespace Assignment5
 
         }
 
-        private void collectivePriceTextBox_TextChanged(object sender, EventArgs e)
+        private void CollectivePriceTextBox_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void Label2_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        private void TabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
@@ -565,7 +561,7 @@ namespace Assignment5
 
         }
 
-        private void toolTip1_Popup(object sender, PopupEventArgs e)
+        private void ToolTip1_Popup(object sender, PopupEventArgs e)
         {
 
         }
@@ -585,38 +581,38 @@ namespace Assignment5
 
         }
 
-        private void label10_Click_1(object sender, EventArgs e)
+        private void Label10_Click_1(object sender, EventArgs e)
         {
 
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void Label3_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void toolStripContainer1_TopToolStripPanel_Click(object sender, EventArgs e)
+        private void ToolStripContainer1_TopToolStripPanel_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void toolStripContainer1_ContentPanel_Load(object sender, EventArgs e)
+        private void ToolStripContainer1_ContentPanel_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void Label1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
 
         }
-        private void summaryTabPage_Click(object sender, EventArgs e) { }
+        private void SummaryTabPage_Click(object sender, EventArgs e) { }
 
-        private void searchTabPage_Click(object sender, EventArgs e)
+        private void SearchTabPage_Click(object sender, EventArgs e)
         {
 
         }
