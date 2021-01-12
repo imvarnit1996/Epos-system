@@ -32,6 +32,7 @@ namespace Assignment5
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.clearButton = new System.Windows.Forms.Button();
             this.exit_Button = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
@@ -48,7 +49,7 @@ namespace Assignment5
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.mealTabPage = new System.Windows.Forms.TabPage();
+            this.Items = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
             this.CancelOrder = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -94,7 +95,7 @@ namespace Assignment5
             this.summaryTabPage.SuspendLayout();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
-            this.mealTabPage.SuspendLayout();
+            this.Items.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.quantityNumericUpDown)).BeginInit();
@@ -283,19 +284,19 @@ namespace Assignment5
             this.label5.Text = "Number of Commodities sold: ";
             this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
-            // mealTabPage
+            // Items
             // 
-            this.mealTabPage.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("mealTabPage.BackgroundImage")));
-            this.mealTabPage.Controls.Add(this.panel2);
-            this.mealTabPage.Controls.Add(this.panel1);
-            this.mealTabPage.Location = new System.Drawing.Point(4, 22);
-            this.mealTabPage.Name = "mealTabPage";
-            this.mealTabPage.Padding = new System.Windows.Forms.Padding(3);
-            this.mealTabPage.Size = new System.Drawing.Size(729, 437);
-            this.mealTabPage.TabIndex = 0;
-            this.mealTabPage.Text = "Meal Plan";
-            this.mealTabPage.UseVisualStyleBackColor = true;
-            this.mealTabPage.Click += new System.EventHandler(this.tabPage1_Click);
+            this.Items.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Items.BackgroundImage")));
+            this.Items.Controls.Add(this.panel2);
+            this.Items.Controls.Add(this.panel1);
+            this.Items.Location = new System.Drawing.Point(4, 22);
+            this.Items.Name = "Items";
+            this.Items.Padding = new System.Windows.Forms.Padding(3);
+            this.Items.Size = new System.Drawing.Size(729, 437);
+            this.Items.TabIndex = 0;
+            this.Items.Text = "Items";
+            this.Items.UseVisualStyleBackColor = true;
+            this.Items.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // panel2
             // 
@@ -542,10 +543,20 @@ namespace Assignment5
             this.Column3,
             this.Column4,
             this.Column5});
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.NullValue = "(null)";
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.GridColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView1.Location = new System.Drawing.Point(187, 156);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowTemplate.DefaultCellStyle.NullValue = "-1";
             this.dataGridView1.Size = new System.Drawing.Size(517, 133);
             this.dataGridView1.TabIndex = 11;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
@@ -558,7 +569,7 @@ namespace Assignment5
             // 
             // Column2
             // 
-            this.Column2.HeaderText = "sizes";
+            this.Column2.HeaderText = "Sizes";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             // 
@@ -616,7 +627,7 @@ namespace Assignment5
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.mealTabPage);
+            this.tabControl1.Controls.Add(this.Items);
             this.tabControl1.Controls.Add(this.summaryTabPage);
             this.tabControl1.Controls.Add(this.searchTabPage);
             this.tabControl1.Location = new System.Drawing.Point(34, 70);
@@ -778,7 +789,7 @@ namespace Assignment5
             this.toolStripContainer1.ContentPanel.PerformLayout();
             this.toolStripContainer1.ResumeLayout(false);
             this.toolStripContainer1.PerformLayout();
-            this.mealTabPage.ResumeLayout(false);
+            this.Items.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -802,7 +813,7 @@ namespace Assignment5
         //private System.Windows.Forms.DataGridViewTextBoxColumn sizes;
         private System.Windows.Forms.DataGridViewTextBoxColumn ragle;
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage mealTabPage;
+        private System.Windows.Forms.TabPage Items;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button completeOrderButton;
@@ -814,11 +825,6 @@ namespace Assignment5
         private System.Windows.Forms.Button deleteItem;
         private System.Windows.Forms.Label CommoditiesLabel;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.Button proceedButton;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button addButton;
@@ -855,6 +861,11 @@ namespace Assignment5
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.Label searchResultLabel;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
     }
 }
 

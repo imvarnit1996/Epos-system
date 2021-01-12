@@ -14,3 +14,15 @@ Item: Vest size: Regular Quantiy: 2 Individual Price: 3.4 Collective price: 6.8;
 Order ID: 210111165328 Date: 11-01-2021 Time: 04:53:28
 Item: Skirt  size: Regular Quantiy: 1 Individual Price: 6.83 Collective price: 6.83
 Item: Shorts size: Large Quantiy: 1 Individual Price: 4.99 Collective price: 4.99;
+
+Order ID: 210112122607 Date: 12-01-2021 Time: 12:26:07
+Item: Skirt  size: Regular Quantiy: 2 Individual Price: 6.83 Collective price: 13.66;
+
+Order ID: 210112124653 Date: 12-01-2021 Time: 12:46:53
+Item: Shorts size: Regular Quantiy: 2 Individual Price: 4.49 Collective price: 8.98;
+
+Order ID: 210112124735 Date: 12-01-2021 Time: 12:47:35
+Item: Jackets size: Regular Quantiy: 2 Individual Price: 4.05 Collective price: 8.10;
+
+Order ID: 210112125003 Date: 12-01-2021 Time: 12:50:03
+Item: Shorts size: Medium Quantiy: 2 Individual Price: 3.99 Collective price: 7.98;

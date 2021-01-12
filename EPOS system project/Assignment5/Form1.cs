@@ -13,7 +13,7 @@ namespace Assignment5
 {
     public partial class Form1 : Form
     {
-        readonly string[] commodities = new string[] { 
+        readonly string[] commodities = new string[] {
             "Shirt",
             "Jeans",
             "T-shirt",
@@ -31,11 +31,11 @@ namespace Assignment5
             "Blankets",
             "Curtains" };
 
-        readonly string[] sizes = new string[] { 
-            "Small", 
-            "Medium", 
-            "Regular", 
-            "Large", 
+        readonly string[] sizes = new string[] {
+            "Small",
+            "Medium",
+            "Regular",
+            "Large",
             "Extra Large" };
 
         readonly decimal[,] price = {{3.45m, 3.50m,  3.55m,  3.38m,  6.83m,  3.4m,   4.49m,  4.05m,  5.5m,   8.5m,   4.25m,  4.5m,  5.36m,   6.0m,   3.23m,  4.45m},
@@ -67,12 +67,12 @@ namespace Assignment5
         private void Form1_Load(object sender, EventArgs e)
         {
             //this.FormClosing += new FormClosingEventHandler(Form1_FormClosing);
-            
+
             try
             {
                 //read the stock form the closing stock
                 String input = File.ReadAllText(@"Closing Stock.txt");
-               
+
                 int i = 0, j = 0;
 
                 foreach (var row in input.Split('\n'))
@@ -88,7 +88,7 @@ namespace Assignment5
 
                 // read the price from the text file
                 String loadPrice = File.ReadAllText("Prices.txt");
-          
+
 
                 int k = 0, l = 0;
 
@@ -105,40 +105,13 @@ namespace Assignment5
 
             }
             catch { }
-
             panel2.Visible = false;
             proceedButton.Enabled = false;
         }
-      
 
 
-        public void priceChangeDetection(string sender)
+        private void addButton_Click(object sender, EventArgs e)
         {
-           
-            commoditiesIndex = commoditiesListBox.SelectedIndex;
-            sizeIndex = sizeListBox.SelectedIndex;
-  
-            if (commoditiesIndex >= 0 && sizeIndex >= 0)
-            {
-                if (int.TryParse(quantityNumericUpDown.Text, out quantity))
-                {
-                    if(sender== "commoditiesListBox" || sender == "sizeListBox")
-                    {
-                        priceTextBox.Text = price[sizeIndex, commoditiesIndex].ToString();
-                        collectivePriceTextBox.Text = ((price[sizeIndex, commoditiesIndex]) * quantity).ToString();
-                    }
-                   else if(sender== "quantityNumericUpDown")
-                    {                    
-                                quantity++;
-                                collectivePriceTextBox.Text = ((price[sizeIndex, commoditiesIndex]) * quantity).ToString();
-                    }
-                }
-            }
-        }
-
-
-
-        private void addButton_Click(object sender, EventArgs e){
             commoditiesIndex = commoditiesListBox.SelectedIndex;
             sizeIndex = sizeListBox.SelectedIndex;
 
@@ -168,14 +141,12 @@ namespace Assignment5
                         {
 
                             collectivePrice = (price[sizeIndex, commoditiesIndex] * quantity);
-
                             dataGridView1.Rows.Add(commodities[commoditiesIndex], sizes[sizeIndex], quantityNumericUpDown.Text, price[sizeIndex, commoditiesIndex], collectivePrice);
-
                             tempStock[sizeIndex, commoditiesIndex] -= quantity;
 
                             count = false; // clone is stopped by the flag
+                           
 
-                          
                             quantityNumericUpDown.Text = "0";
                             proceedButton.Enabled = true;
                         }
@@ -200,19 +171,36 @@ namespace Assignment5
 
         }
 
+
+        public void priceChangeDetection(string sender)
+        {
+
+            commoditiesIndex = commoditiesListBox.SelectedIndex;
+            sizeIndex = sizeListBox.SelectedIndex;
+
+            if (commoditiesIndex >= 0 && sizeIndex >= 0)
+            {
+                
+                priceTextBox.Text = price[sizeIndex, commoditiesIndex].ToString();
+                        collectivePriceTextBox.Text = ((price[sizeIndex, commoditiesIndex]) * quantityNumericUpDown.Value).ToString();
+                 
+            }
+        }
+
         private void commoditiesListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
+            quantityNumericUpDown.Text = "0";
             priceChangeDetection((sender as ListBox).Name);
         }
 
         private void sizeListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
+            quantityNumericUpDown.Text = "0";
             priceChangeDetection((sender as ListBox).Name);
         }
         private void quantityNumericUpDown_ValueChanged(object sender, EventArgs e)
         {
+           
             priceChangeDetection((sender as NumericUpDown).Name);
         }
 
@@ -245,14 +233,19 @@ namespace Assignment5
             try
             {
                 // delete the row and add the quantity back to the Tempstock
-
-                if (dataGridView1.Rows.Count > 1 /*&& dataGridView1.CurrentRow.Index == dataGridView1.Rows.Count*/ )
+                var rowindex = dataGridView1.CurrentCell.RowIndex;
+                if (dataGridView1.Rows.Count > 1 && dataGridView1.Rows[rowindex].Cells[0].Value.ToString() != null)
                 {
-                    int rowindex = dataGridView1.CurrentCell.RowIndex;
-                   
-                    tempStock[sizeIndex, commoditiesIndex] += Convert.ToInt32(dataGridView1.Rows[rowindex].Cells[2].Value.ToString());
-                    dataGridView1.Rows.RemoveAt(rowindex);
-                    if (dataGridView1.Rows[0].Index == 0) proceedButton.Enabled = false;
+                 
+                        tempStock[sizeIndex, commoditiesIndex] += Convert.ToInt32(dataGridView1.Rows[rowindex].Cells[2].Value.ToString());
+                        dataGridView1.Rows.RemoveAt(rowindex);
+                 
+                    if (dataGridView1.Rows[0].Index == 0)
+                    {
+                        collectivePriceTextBox.Text = "0";
+                        priceTextBox.Text = "0";
+                        proceedButton.Enabled = false;
+                    }
                 }
                 else
                 {
@@ -260,8 +253,9 @@ namespace Assignment5
                 }
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
+                Console.WriteLine("Exception message" + ex.Message);
                 MessageBox.Show("Select a non empty row");
             }
         }
@@ -271,10 +265,10 @@ namespace Assignment5
         {
 
             int dgvRowIndex = dataGridView1.RowCount;
-           
-             time_OrderId = "Order ID: " + DateTime.Now.ToString("yyMMddHHmmss")
-                       + " Date: "+ DateTime.Now.ToString("dd-MM-yyyy") 
-                                + " Time: " + DateTime.Now.ToString("hh:mm:ss");
+
+            time_OrderId = "Order ID: " + DateTime.Now.ToString("yyMMddHHmmss")
+                      + " Date: " + DateTime.Now.ToString("dd-MM-yyyy")
+                               + " Time: " + DateTime.Now.ToString("hh:mm:ss");
             try
             {
                 for (int i = 0; i < dgvRowIndex - 1; i++)
@@ -289,42 +283,41 @@ namespace Assignment5
 
                 }
 
-               
-                MessageBox.Show("Order sucessfull"+Environment.NewLine + time_OrderId + receipt);
+                MessageBox.Show("Order sucessfull" + Environment.NewLine + time_OrderId + receipt);
 
             }
             catch { }
-           
-          
+
             totalNoTrans += 1; //for summary
             completeOrderButton.Enabled = false;
             totalSaleValue += totalPrice;
             newButton.Enabled = true;
             CancelOrder.Enabled = false;
             clearButton.Enabled = false;
+            collectivePriceTextBox.Text = "";
+            priceTextBox.Text = "";
             closingStock = tempStock.Clone() as int[,]; // clone for the live stock
-            var fileName = @"Orders.txt";
+           
+            var fileName = @"Orders.txt";          
             StreamWriter TR;
-
             TR = File.AppendText(fileName);
             TR.WriteLine(Environment.NewLine + time_OrderId + receipt + ";");
-
             TR.Flush();
             TR.Close();
 
-
-
         }
 
-        // For new Order
-        private void newButton_Click(object sender, EventArgs e)
+
+        // for clearing fields on new cancel and no button
+        public void ClearFields()
         {
             commoditiesListBox.Text = "";
             sizeListBox.Text = "";
-            quantityNumericUpDown.Text = "";
+            quantityNumericUpDown.Text = "0";
             dataGridView1.Rows.Clear();
-            mealTabPage.Visible = true;
-
+            Items.Visible = true;
+            collectivePriceTextBox.Text = "";
+            priceTextBox.Text = "";
             commoditiesListBox.Focus();
             receipt = "";
             completeOrderButton.Enabled = true;
@@ -333,41 +326,28 @@ namespace Assignment5
             deleteItem.Enabled = true;
             proceedButton.Enabled = false;
             clearButton.Enabled = true;
-
             panel1.Visible = true;
-     
             totalPrice = 0;
             panel2.Visible = false;
+        }
+
+        // For new Order
+        private void newButton_Click(object sender, EventArgs e)
+        {
+            ClearFields();
         }
 
         private void cancelButton_Click_1(object sender, EventArgs e)
         {
-            commoditiesListBox.Text = "";
-            sizeListBox.Text = "";
-            quantityNumericUpDown.Text = "";
-            dataGridView1.Rows.Clear();
-            mealTabPage.Visible = true;
-
-            commoditiesListBox.Focus();
-            receipt = "";
-            completeOrderButton.Enabled = true;
-            totalPriceLabel.Text = "";
-            deleteItem.Enabled = true;
-            proceedButton.Enabled = false;
-            clearButton.Enabled = true;
-            panel1.Visible = true;
-            // proceedButton.Enabled = true;
-            totalPrice = 0;
-            panel2.Visible = false;
+            ClearFields();
         }
 
         private void exit_Button_Click(object sender, EventArgs e)
         {
-            if (receipt == null)
-           {
-               
-              this.Close();
-                
+            if (receipt == null || receipt =="")
+            {
+                this.Close();
+
             }
             else
             {
@@ -390,36 +370,17 @@ namespace Assignment5
                             }
                             FS.WriteLine();
                         }
-
                         FS.Close();
-                      
-
                     }
                     catch (Exception ex)
                     {
                         Console.WriteLine("Exception \n" + ex);
                     }
-                   
                     this.Close();
                 }
                 else if (exit == DialogResult.No)
                 {
-                    commoditiesListBox.Text = "";
-                    sizeListBox.Text = "";
-                    quantityNumericUpDown.Text = "";
-                    dataGridView1.Rows.Clear();
-                    mealTabPage.Visible = true;
-
-                    commoditiesListBox.Focus();
-                    receipt = "";
-                    completeOrderButton.Enabled = true;
-                    totalPriceLabel.Text = "";
-                    deleteItem.Enabled = true;
-
-                    panel1.Visible = true;
-                    proceedButton.Enabled = false;
-                    totalPrice = 0;
-                    panel2.Visible = false;
+                    ClearFields();
                 }
             }
         }
@@ -442,52 +403,48 @@ namespace Assignment5
         }
 
 
-        private void ManagementReport_Click(object sender, EventArgs e)
-        {
-            ManagementReport.Visible = false;
 
-        }
 
         //clears and ready for the new Order
         private void clearButton_Click(object sender, EventArgs e)
         {
             commoditiesListBox.Text = "";
             sizeListBox.Text = "";
-            quantityNumericUpDown.Text = "";
+            quantityNumericUpDown.Text = "0";
             dataGridView1.Rows.Clear();
-            mealTabPage.Visible = true;
+            Items.Visible = true;
             commoditiesListBox.Focus();
             deleteItem.Enabled = true;
             panel1.Visible = true;
             totalPriceLabel.Text = "";
             panel2.Visible = false;
+            collectivePriceTextBox.Text = "";
+            priceTextBox.Text = "";
         }
 
         private void searchButton_Click(object sender, EventArgs e)
         {
             string search_text = searchTextBox.Text.Trim();
 
-            if (search_text!="" && search_text.Length ==12)
+            if (search_text != "" && search_text.Length == 12)
             {
 
-                    String input = File.ReadAllText(@"Orders.txt");
+                String input = File.ReadAllText(@"Orders.txt");
 
-                    string[] orders = input.Split(';');
+                string[] orders = input.Split(';');
 
-                    foreach (string order in orders)
+                foreach (string order in orders)
+                {
+
+                    if (order.Contains(search_text))
                     {
 
-                        if (order.Contains(search_text))
-                        {
-                           
-                            searchResultLabel.Text = order.Trim().Trim(); ;
-                          
-                            return;
-                        }
+                        searchResultLabel.Text = order.Trim().Trim(); ;
 
+                        return;
                     }
-                
-              
+
+                }
 
                 searchResultLabel.Text = "Cannot find anything";
 
@@ -500,10 +457,10 @@ namespace Assignment5
 
         }
 
-   //Empty methods
+        //Empty methods
         private void searchTextBox_TextChanged(object sender, EventArgs e)
-       {
-            
+        {
+
         }
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
