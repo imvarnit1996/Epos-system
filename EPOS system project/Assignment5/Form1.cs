@@ -405,7 +405,7 @@ namespace Assignment5
                 {
                     if (order.Contains(search_text))
                     {
-                        searchResultLabel.Text = order.Trim().Trim(); ;
+                        searchResultLabel.Text = order.Trim();
                         return;
                     }
                 }

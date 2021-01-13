@@ -1,0 +1,17 @@
+
+Order ID: 210113114901 Date: 13-01-2021 Time: 11:49:01
+Item: Jeans size: Small Quantiy: 2 Individual Price: 3.50 Collective price: 7.00
+Item: T-shirt size: Small Quantiy: 2 Individual Price: 3.55 Collective price: 7.10;
+
+Order ID: 210113114958 Date: 13-01-2021 Time: 11:49:58
+Item: Skirt  size: Regular Quantiy: 2 Individual Price: 6.83 Collective price: 13.66
+Item: Vest size: Large Quantiy: 2 Individual Price: 3.59 Collective price: 7.18;
+
+Order ID: 210113115015 Date: 13-01-2021 Time: 11:50:15
+Item: Sweaters size: Extra Large Quantiy: 2 Individual Price: 5.25 Collective price: 10.50
+Item: T-shirt size: Regular Quantiy: 2 Individual Price: 3.55 Collective price: 7.10
+Item: SweatShirts size: Large Quantiy: 2 Individual Price: 6.51 Collective price: 13.02;
+
+Order ID: 210113115030 Date: 13-01-2021 Time: 11:50:30
+Item: Towels size: Small Quantiy: 2 Individual Price: 5.36 Collective price: 10.72
+Item: Skirt  size: Regular Quantiy: 2 Individual Price: 6.83 Collective price: 13.66;
