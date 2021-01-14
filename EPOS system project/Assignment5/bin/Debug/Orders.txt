@@ -15,3 +15,10 @@ Item: SweatShirts size: Large Quantiy: 2 Individual Price: 6.51 Collective price
 Order ID: 210113115030 Date: 13-01-2021 Time: 11:50:30
 Item: Towels size: Small Quantiy: 2 Individual Price: 5.36 Collective price: 10.72
 Item: Skirt  size: Regular Quantiy: 2 Individual Price: 6.83 Collective price: 13.66;
+
+Order ID: 210114232410 Date: 14-01-2021 Time: 11:24:10
+Item: T-shirt size: Medium Quantiy: 2 Individual Price: 3.05 Collective price: 6.10
+Item: Trousers size: Regular Quantiy: 2 Individual Price: 3.38 Collective price: 6.76;
+
+Order ID: 210114233812 Date: 14-01-2021 Time: 11:38:12
+Item: Vest size: Regular Quantiy: 2 Individual Price: 3.4 Collective price: 6.8;

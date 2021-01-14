@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Assignment5
+namespace Assignment4
 {
     partial class Form1
     {
@@ -32,7 +32,6 @@ namespace Assignment5
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.clearButton = new System.Windows.Forms.Button();
             this.exit_Button = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
@@ -106,9 +105,9 @@ namespace Assignment5
             // 
             // clearButton
             // 
-            this.clearButton.Location = new System.Drawing.Point(591, 31);
+            this.clearButton.Location = new System.Drawing.Point(578, 63);
             this.clearButton.Name = "clearButton";
-            this.clearButton.Size = new System.Drawing.Size(75, 23);
+            this.clearButton.Size = new System.Drawing.Size(116, 23);
             this.clearButton.TabIndex = 2;
             this.clearButton.Text = "Clea&r";
             this.toolTip1.SetToolTip(this.clearButton, "click here to clear");
@@ -371,6 +370,7 @@ namespace Assignment5
             // 
             this.panel1.Controls.Add(this.CollectivePriceLabel);
             this.panel1.Controls.Add(this.priceLabel);
+            this.panel1.Controls.Add(this.clearButton);
             this.panel1.Controls.Add(this.collectivePriceTextBox);
             this.panel1.Controls.Add(this.priceTextBox);
             this.panel1.Controls.Add(this.label1);
@@ -445,9 +445,9 @@ namespace Assignment5
             // deleteItem
             // 
             this.deleteItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deleteItem.Location = new System.Drawing.Point(491, 51);
+            this.deleteItem.Location = new System.Drawing.Point(462, 63);
             this.deleteItem.Name = "deleteItem";
-            this.deleteItem.Size = new System.Drawing.Size(64, 23);
+            this.deleteItem.Size = new System.Drawing.Size(95, 23);
             this.deleteItem.TabIndex = 12;
             this.deleteItem.Text = "DELETE";
             this.toolTip1.SetToolTip(this.deleteItem, "click here to delete the item in the row");
@@ -468,7 +468,7 @@ namespace Assignment5
             // proceedButton
             // 
             this.proceedButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.proceedButton.Location = new System.Drawing.Point(576, 24);
+            this.proceedButton.Location = new System.Drawing.Point(578, 12);
             this.proceedButton.Name = "proceedButton";
             this.proceedButton.Size = new System.Drawing.Size(116, 45);
             this.proceedButton.TabIndex = 3;
@@ -595,11 +595,11 @@ namespace Assignment5
             // addButton
             // 
             this.addButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addButton.Location = new System.Drawing.Point(500, 19);
+            this.addButton.Location = new System.Drawing.Point(462, 12);
             this.addButton.Name = "addButton";
-            this.addButton.Size = new System.Drawing.Size(55, 23);
+            this.addButton.Size = new System.Drawing.Size(95, 45);
             this.addButton.TabIndex = 6;
-            this.addButton.Text = " &ADD";
+            this.addButton.Text = " &ADD TO CART";
             this.toolTip1.SetToolTip(this.addButton, "Click here to add the items");
             this.addButton.UseVisualStyleBackColor = true;
             this.addButton.Click += new System.EventHandler(this.AddButton_Click);
@@ -767,7 +767,6 @@ namespace Assignment5
             this.ClientSize = new System.Drawing.Size(820, 614);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.exit_Button);
-            this.Controls.Add(this.clearButton);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
             this.Text = "EPOS";

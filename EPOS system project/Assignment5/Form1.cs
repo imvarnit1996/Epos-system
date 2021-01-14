@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 
-namespace Assignment5
+namespace Assignment4
 {
     public partial class Form1 : Form
     {
@@ -285,6 +285,8 @@ namespace Assignment5
         // for clearing fields on new cancel and no button
         public void ClearFields()
         {
+            commoditiesListBox.SelectedIndex = -1;
+            sizeListBox.SelectedIndex = -1;
             commoditiesListBox.Text = "";
             sizeListBox.Text = "";
             quantityNumericUpDown.Text = "0";
@@ -303,6 +305,7 @@ namespace Assignment5
             panel1.Visible = true;
             total_price = 0;
             panel2.Visible = false;
+
         }
 
         // For placing the new Order
@@ -361,7 +364,7 @@ namespace Assignment5
         // summar of daily sales
         private void Summary_Button_Click(object sender, EventArgs e)
         {
-            summaryTabPage.Visible = true;
+    
             try
             {
                 totalCommoditiesLabel.Text = total_commodities.ToString();
@@ -377,6 +380,8 @@ namespace Assignment5
         //clears the filed for new cart elemets
         private void ClearButton_Click(object sender, EventArgs e)
         {
+            commoditiesListBox.SelectedIndex = -1;
+            sizeListBox.SelectedIndex = -1;
             commoditiesListBox.Text = "";
             sizeListBox.Text = "";
             quantityNumericUpDown.Text = "0";
@@ -389,6 +394,7 @@ namespace Assignment5
             panel2.Visible = false;
             collectivePriceTextBox.Text = "";
             priceTextBox.Text = "";
+
         }
 
         private void SearchButton_Click(object sender, EventArgs e)
@@ -610,11 +616,15 @@ namespace Assignment5
         {
 
         }
-        private void SummaryTabPage_Click(object sender, EventArgs e) { }
+        private void SummaryTabPage_Click(object sender, EventArgs e) {
+            clearButton.Enabled = false;
+            clearButton.Visible = false;
+        }
 
         private void SearchTabPage_Click(object sender, EventArgs e)
         {
-
+            clearButton.Enabled = false;
+            clearButton.Visible = false;
         }
 
     }
