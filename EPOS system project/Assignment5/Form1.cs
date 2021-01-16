@@ -153,7 +153,7 @@ namespace Assignment4
                 }
                 else
                 {
-                    MessageBox.Show("Please enter the valid input");
+                    MessageBox.Show("Please enter the valid quantity");
                 }
             }
         }
@@ -617,14 +617,12 @@ namespace Assignment4
 
         }
         private void SummaryTabPage_Click(object sender, EventArgs e) {
-            clearButton.Enabled = false;
-            clearButton.Visible = false;
+            
         }
 
         private void SearchTabPage_Click(object sender, EventArgs e)
         {
-            clearButton.Enabled = false;
-            clearButton.Visible = false;
+			
         }
 
     }
