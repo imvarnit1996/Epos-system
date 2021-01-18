@@ -90,6 +90,7 @@ namespace Assignment4
             this.LeftToolStripPanel = new System.Windows.Forms.ToolStripPanel();
             this.ContentPanel = new System.Windows.Forms.ToolStripContentPanel();
             this.label10 = new System.Windows.Forms.Label();
+            this.ManagementReport = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.summaryTabPage.SuspendLayout();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
@@ -138,6 +139,7 @@ namespace Assignment4
             // summaryTabPage
             // 
             this.summaryTabPage.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("summaryTabPage.BackgroundImage")));
+            this.summaryTabPage.Controls.Add(this.ManagementReport);
             this.summaryTabPage.Controls.Add(this.label9);
             this.summaryTabPage.Controls.Add(this.summary_Button);
             this.summaryTabPage.Controls.Add(this.toolStripContainer1);
@@ -760,6 +762,16 @@ namespace Assignment4
             this.label10.Text = "only close by END button otherwise stock wont be updated";
             this.label10.Click += new System.EventHandler(this.Label10_Click_1);
             // 
+            // ManagementReport
+            // 
+            this.ManagementReport.Location = new System.Drawing.Point(570, 32);
+            this.ManagementReport.Name = "ManagementReport";
+            this.ManagementReport.Size = new System.Drawing.Size(125, 23);
+            this.ManagementReport.TabIndex = 21;
+            this.ManagementReport.Text = "Management Report";
+            this.ManagementReport.UseVisualStyleBackColor = true;
+            this.ManagementReport.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -855,6 +867,7 @@ namespace Assignment4
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.Button ManagementReport;
     }
 }
 

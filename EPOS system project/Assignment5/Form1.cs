@@ -78,10 +78,10 @@ namespace Assignment4
                     j = 0;
                     foreach (var col in row.Trim().Split(','))
                     {
-                        stock[i, j] = int.Parse(col.Trim());
+                        stock[j, j] = int.Parse(col.Trim());
                         j++;
                     }
-                    i++;
+                    j++;
                 }
 
                 // read the price from the text file
@@ -341,8 +341,8 @@ namespace Assignment4
                         {
                             for (int j = 0; j < commodities.Length; j++)
                             {
-                                if (j != 15) FS.Write(closing_stock[i, j] + ",");
-                                if (j == 15) FS.Write(closing_stock[i, j]);
+                                if (j != 15) FS.Write(closing_stock[j, j] + ",");
+                                if (j == 15) FS.Write(closing_stock[j, j]);
                             }
                             FS.WriteLine();
                         }
@@ -422,6 +422,41 @@ namespace Assignment4
                 searchResultLabel.Text = "Cannot find anything";
             }
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
+
+
+            try
+            {
+                //write the closing stock to file so it can load the for the next day
+                StreamWriter FS = new StreamWriter(@"Management Report.txt");
+
+                for (int i = 0; i < sizes.Length; i++)
+                {
+                    FS.Write ("-----------------" + sizes[i]+"-----------------" +"\n");
+                    for (int j = 0; j < commodities.Length; j++)
+                    {
+                        
+                        
+                       FS.Write("Item: " + commodities[j]  +"   "+ "Stock available: " + closing_stock[i, j] + Environment.NewLine);
+                       
+                    }
+                    FS.WriteLine();
+                }  
+
+                MessageBox.Show("Saved to Management report.txt ")
+            FS.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception \n" + ex);
+            }
+
+
+        }
+
 
         //Empty methods
         private void SearchTextBox_TextChanged(object sender, EventArgs e)
@@ -591,6 +626,8 @@ namespace Assignment4
         {
 
         }
+
+       
 
         private void Label3_Click(object sender, EventArgs e)
         {
