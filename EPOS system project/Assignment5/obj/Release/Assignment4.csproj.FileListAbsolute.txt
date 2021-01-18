@@ -1,0 +1,5 @@
+C:\Users\VarnitsMachine\Documents\GitHub\Epos-system\EPOS system project\Assignment5\obj\Release\Assignment4.csprojAssemblyReference.cache
+C:\Users\VarnitsMachine\Documents\GitHub\Epos-system\EPOS system project\Assignment5\obj\Release\Assignment4.Form1.resources
+C:\Users\VarnitsMachine\Documents\GitHub\Epos-system\EPOS system project\Assignment5\obj\Release\Assignment4.Properties.Resources.resources
+C:\Users\VarnitsMachine\Documents\GitHub\Epos-system\EPOS system project\Assignment5\obj\Release\Assignment4.csproj.GenerateResource.cache
+C:\Users\VarnitsMachine\Documents\GitHub\Epos-system\EPOS system project\Assignment5\obj\Release\Assignment4.csproj.CoreCompileInputs.cache
