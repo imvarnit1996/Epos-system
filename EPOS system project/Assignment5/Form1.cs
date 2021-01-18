@@ -78,7 +78,7 @@ namespace Assignment4
                     j = 0;
                     foreach (var col in row.Trim().Split(','))
                     {
-                        stock[j, j] = int.Parse(col.Trim());
+                        stock[i, j] = int.Parse(col.Trim());
                         j++;
                     }
                     j++;
